@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const {User} = require('../models');
+const {User, Data} = require('../models');
 
 
 router.get("/",(req,res)=>{
-    User.findAll({
+    Data.findAll({
+        include: [User],
+        order: ['date']
     }).then(dbUsers=>{
         if(dbUsers.length){
             res.json(dbUsers)
@@ -19,7 +21,8 @@ router.get("/",(req,res)=>{
 
 router.post("/",(req,res)=>{
     User.create({
-        username:req.body.username,
+        first_name:req.body.username,
+        last_name:req.body.username,
         password:req.body.password,
         email:req.body.email
     }).then(newUser=>{
