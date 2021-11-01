@@ -36,13 +36,16 @@ const seed = async ()=>{
     })
     const dataData = await Data.bulkCreate([
         {
-            date: "2020-03-05"
+            date: "2020-03-05",
+            UserId: 1
         },
         {
-            date: "2020-03-05"
+            date: "2020-03-05",
+            UserId: 1
         },
         {
-            date: "2020-03-05"
+            date: "2020-03-05",
+            UserId: 1
         },
     ])
    
