@@ -8,7 +8,7 @@ User.hasMany(Data,{
 Data.belongsTo(User);
 
 Professional.hasMany(User, {
-    onDelete:"NULL"
+    onDelete: "SET NULL"
 });
 User.belongsTo(Professional)
 
