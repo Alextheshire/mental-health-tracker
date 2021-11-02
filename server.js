@@ -9,7 +9,7 @@ const PORT = process.env.PORT || 3000;
 const hbs = exphbs.create({});
 
 const routes = require("./controllers");
-const {User,Data} = require('./models');
+const {User,Data,Professional} = require('./models');
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
