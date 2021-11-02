@@ -1,7 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const { User, Data } = require('../models');
-const bcrypt = require("bcrypt")
+const bcrypt = require("bcrypt");
+
 
 router.get("/home", (req, res) => {
     console.log('hello')

@@ -7,7 +7,8 @@ loginForm.addEventListener('submit', async (e) => {
     const loginPassword = document.getElementById('password').value
 
     if(loginEmail && loginPassword){
-        const resp = await fetch('/login', {
+        const resp = await fetch('/login', 
+        {
             method: 'POST',
             body: JSON.stringify({ email: loginEmail, password: loginPassword }),
             headers: { 'Content-Type': 'application/json' }
@@ -15,7 +16,6 @@ loginForm.addEventListener('submit', async (e) => {
 
         if(resp.ok){
             console.log(resp);
-            location.replace('/profile')
         } else {
             alert('Incorrect information')
         }
