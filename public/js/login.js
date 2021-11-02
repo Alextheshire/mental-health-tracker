@@ -16,7 +16,7 @@ loginForm.addEventListener('submit', async (e) => {
 
         if(resp.ok){
             console.log(resp);
-            location.replace('/profile')
+            location.replace('/profile');
         } else {
             alert('Incorrect information')
         }
@@ -26,20 +26,21 @@ loginForm.addEventListener('submit', async (e) => {
 signupForm.addEventListener('submit', async (e) => {
     e.preventDefault()
     const signupEmail = document.getElementById('signupemail').value
-    const signupUsername = document.getElementById('signupusername').value
     const signupPassword = document.getElementById('signuppassword').value
+    const signupfirstname = document.getElementById('signupfirstname').value
+    const signuplastname = document.getElementById('signuplastname').value
 
-    if(signupEmail && signupPassword && signupUsername){
-        const resp = await fetch('/api/users', {
+    if(signupEmail && signupPassword && signupfirstname && signuplastname){
+        const resp = await fetch('/signup', {
             method: 'POST',
-            body: JSON.stringify({ email:signupEmail, password:signupPassword, name:signupUsername }),
+            body: JSON.stringify({ email:signupEmail, password:signupPassword, first_name:signupfirstname, last_name:signuplastname }),
             headers: { 'Content-Type': 'application/json' }
         })
 
         if(resp.ok){
             location.href = '/profile'
         } else {
-            alert('User already exists?')
+            alert("signup fail")
         }
     }
 });
