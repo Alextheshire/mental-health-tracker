@@ -9,18 +9,20 @@ router.get("/home", (req, res) => {
     res.render("home")
 })
 router.get("/ask", (req, res) => {
-    console.log('hello')
-    res.render("ask")
+    Data.findByPk(req.session.user.id, {
+    }).then(dData => {
+        const hbsdData = dData.get({ plain: true });
+        res.render("ask",hbsdData)
+    })
 })
 router.get("/login", (req, res) => {
     console.log('hello')
     res.render("login")
 })
-router.get("/profile", (req, res) => {
+router.get("/chart", (req, res) => {
     console.log('hello')
-    res.render("profile")
+    res.render("chart")
 })
-
 // Data.findAll({
 //     include: [User],
 //     order: ['date']

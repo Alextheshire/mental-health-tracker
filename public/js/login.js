@@ -16,6 +16,7 @@ loginForm.addEventListener('submit', async (e) => {
 
         if(resp.ok){
             console.log(resp);
+            location.replace('/profile')
         } else {
             alert('Incorrect information')
         }
