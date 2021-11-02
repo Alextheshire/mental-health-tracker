@@ -3,7 +3,7 @@ const router = express.Router();
 
 
 const profile = require('./profile');
-router.use =(profile);
+router.use(profile);
 const frontEndRoutes = require("./frontEndRoutes.js");
 router.use(frontEndRoutes);
 
