@@ -1,4 +1,160 @@
-{{#each}}
-{{>questionaire}}
+<div class="card" id="date">
+    <div class="card-body">
+        <label for="datepicker">What day would you like to fill out a form for?</label>
+        <input id="datepicker" type="input">
 
-{{/each}}
+    </div>
+</div>
+<div class="card" id="self-harm">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your urge to self harm:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="s-h-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="use">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your urge to use drugs or alcohol:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="use-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="suicidal-thoughts">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your the intensity of your suicidal thoughts and urges:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="s-t-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="ovrl-emotion">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your overall emotional level:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="ovrl-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="self-accept">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current self-acceptance:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="anger">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current anger level:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="anger-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="joy">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current joy level:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="joy-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="shame">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current shame level:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="shame-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="sadness">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current level of sadness:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="sad-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="fear">
+    <div class="card-body">
+        <label for="s-h-select">Please rate your current fear level:</label>
+        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="fear-select">
+            <option value="0">Zero</option>
+            <option value="1">One</option>
+            <option value="2">Two</option>
+            <option value="3">Three</option>
+            <option value="4">Four</option>
+            <option value="5">Five</option>
+        </select>
+
+    </div>
+</div>
+<div class="card" id="notes">
+    <div class="card-body">
+        <label for="s-h-select">Please elaborate on any thoughts around self harm and suicide, as well as any notes on your emotional levels:</label>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="notes-body"
+                style="height: 100px"></textarea>
+            <label for="notes-body">Notes</label>
+        </div>
+
+    </div>
+</div>
+<button type="button" id="form-submit" class="btn-lg">Submit</button>
+<script src="./js/ask.js"></script>
