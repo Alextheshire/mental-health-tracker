@@ -13,12 +13,7 @@ loginForm.addEventListener('submit', async (e) => {
         })
 
         if(resp.ok){
-<<<<<<< HEAD
-            console.log(resp);
-            location.replace('/profile');
-=======
             location.href = '/profile'
->>>>>>> dev
         } else {
             alert('Incorrect information')
         }
