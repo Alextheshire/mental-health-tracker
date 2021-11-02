@@ -14,23 +14,18 @@
       <header class="d-flex">
         <h1><a href='/'>Mental Health Tracker</a></h1>
       </header>
-
-        {{#if logged_in}}
+      <nav>
+        {{#if user.logged_in}}
           <a class="d-flex flex-row-reverse" href='/profile'>Profile</a>
           |
-          <button id='logout' class="d-flex flex-row-reverse">logout</button>
+          <a class="d-flex flex-row-reverse" href='/logout'>logout</a>
         {{else}}
-          <a href='/login'>login</a>
+          <a class="d-flex flex-row-reverse" href='/login'>login</a>
         {{/if}}
       </div>
       </nav>
     </div>
     {{{body}}}
 
-    {{#if logged_in}}
-      <script src='/js/logout.js'></script>
-    {{else}}
-      <script src='/js/login.js'></script>
-    {{/if}}
   </body>
 </html>
