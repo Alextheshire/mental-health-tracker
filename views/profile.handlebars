@@ -1,5 +1,10 @@
-<h1> welcome {{first_name}} {{last_name}}</h1>
+{{#if user.logged_in }}
+<h1> welcome {{user.first_name}} {{user.last_name}}</h1>
 {{!-- link to questionaire page --}}
 {{!-- link to past questionaires --}}
 <a href="./ask"><Button>DBT Form</Button></a>
 <a href="./ask"><Button>Past DBT Form</Button></a>
+<<<<<<< HEAD
+=======
+{{/if}}
+>>>>>>> dev
