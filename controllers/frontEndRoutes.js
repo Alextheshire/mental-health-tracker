@@ -4,7 +4,7 @@ const { User, Data } = require('../models');
 const bcrypt = require("bcrypt");
 
 
-router.get("/home", (req, res) => {
+router.get("/", (req, res) => {
     console.log('hello')
     res.render("home")
 })
@@ -18,8 +18,8 @@ router.get("/login", (req, res) => {
 })
 router.get("/profile", (req, res) => {
     console.log('hello')
-    res.render("profile",{
-        user:req.session.user
+    res.render("profile", {
+        user: req.session.user
     })
 })
 
@@ -41,10 +41,10 @@ router.post("/signup", (req, res) => {
             last_name: newUser.last_name,
             email: newUser.email,
             id: newUser.id,
-            logged_in:true
+            logged_in: true
         }
-        res.render("profile",{
-            user:req.session.user
+        res.render("profile", {
+            user: req.session.user
         });
     }).catch(err => {
         console.log(err);
@@ -67,10 +67,10 @@ router.post("/login", (req, res) => {
                     last_name: foundUser.last_name,
                     email: foundUser.email,
                     id: foundUser.id,
-                    logged_in:true
+                    logged_in: true
                 }
-                res.render("profile",{
-                    user:req.session.user
+                res.render("profile", {
+                    user: req.session.user
                 })
             } else {
                 res.status(401).json({ message: "incorrect email or password" })
@@ -81,7 +81,7 @@ router.post("/login", (req, res) => {
         res.status(500).json(err);
     })
 })
-router.get("/logout",(req,res)=> {
+router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("login")
 })
@@ -93,6 +93,29 @@ router.delete("/:id", (req, res) => {
         }
     }).then(delUser => {
         res.json(delUser)
+    })
+})
+
+router.post("/newForm", (req, res) => {
+    Data.create({
+        date: req.body.date,
+        selfharm_grade: req.body.selfharm_grade,
+        use_grade: req.body.use_grade,
+        suicidal_thoughts_grade: req.body.suicidal_thoughts_grade,
+        ovrl_emotion_grade: req.body.ovrl_emotion_grade,
+        self_accept_grade: req.body.self_accept_grade,
+        anger_grade: req.body.anger_grade,
+        joy_grade: req.body.joy_grade,
+        shame_grade: req.body.shame_grade,
+        sadness_grade: req.body.sadness_grade,
+        fear_grade: req.body.fear_grade,
+        notes: req.body.notes,
+        UserId:req.session.user.id
+    }).then(newForm=>{
+        res.redirect("profile")
+    }).catch(err=>{
+        console.log(err)
+        res.json(err)
     })
 })
 
