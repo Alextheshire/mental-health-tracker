@@ -3,14 +3,22 @@ const router = express.Router();
 const { User, Data } = require('../models');
 
 
-router.get("/", (req, res) => {
+router.get("/home", (req, res) => {
     console.log('hello')
-    res.render("main").catch(err => {
-        console.log(err);
-        res.status(500).json({ message: "an error occured", err: err })
-    })
+    res.render("home")
 })
-
+router.get("/ask", (req, res) => {
+    console.log('hello')
+    res.render("ask")
+})
+router.get("/login", (req, res) => {
+    console.log('hello')
+    res.render("login")
+})
+router.get("/profile", (req, res) => {
+    console.log('hello')
+    res.render("profile")
+})
 
 // Data.findAll({
 //     include: [User],
