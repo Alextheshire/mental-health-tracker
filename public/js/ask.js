@@ -38,7 +38,7 @@ $("#form-submit").on("click", async (event) => {
     })
 
     if (resp.ok) {
-        location.href = '/profile'
+        location.href = '/form'
     } else {
         alert('Error')
     }
