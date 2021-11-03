@@ -8,3 +8,11 @@
 h6{
 font-family: 'Fira Sans';
 }
+h1{
+    font-family: 'Cinzel';
+    font-size: 45px;
+}
+
+nav{
+   background-color: #e3f2fd;
+}
