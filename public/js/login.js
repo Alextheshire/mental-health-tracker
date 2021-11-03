@@ -26,7 +26,10 @@ signupForm.addEventListener('submit', async (e) => {
     const signupPassword = document.getElementById('signuppassword').value
     const signupfirstname = document.getElementById('signupfirstname').value
     const signuplastname = document.getElementById('signuplastname').value
-
+    if(signupPassword.length < 8){
+        alert("Please make your password at least 8 characters.")
+        return
+    }
     if(signupEmail && signupPassword && signupfirstname && signuplastname){
         const resp = await fetch('/signup', {
             method: 'POST',
