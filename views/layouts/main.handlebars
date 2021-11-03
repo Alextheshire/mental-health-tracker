@@ -19,23 +19,27 @@
     <title>Document</title>
   </head>
   <body>
-    <div>
-      <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <div class="container-fluid">
-      <header class="d-flex">
-        <h1 class="mentalHealth"><a href='/'>Mental Health Tracker</a></h1>
-      </header>
-      <nav>
-        {{#if user.logged_in}}
-          <a class="d-flex flex-row-reverse" href='/profile'>Profile</a>
-          |
-          <a class="d-flex flex-row-reverse" href='/logout'>logout</a>
-        {{else}}
-          <a class="d-flex flex-row-reverse" href='/login'>login</a>
-        {{/if}}
+    
+<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="container-fluid ">
+    <a class="navbar-brand fs-1 " href='/'>Mental Health Tracker</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse " id="navbarNavAltMarkup">
+      {{#if user.logged_in}}
+      <div class="navbar-nav ">
+        <a class="nav-link active fs-2" aria-current="page" href='/profile'>Profile</a>
+         <a class="nav-link active fs-2" aria-current="page" href='/logout'>Logout</a>
+         {{else}}
+          <a class="nav-link active fs-2" aria-current="page" href='/login'>Login</a>
+          {{/if}}
       </div>
-      </nav>
     </div>
+  </div>
+</nav>
+</nav>
     {{{body}}}
 
   </body>
