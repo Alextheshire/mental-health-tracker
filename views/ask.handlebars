@@ -1,153 +1,363 @@
 <div class="card" id="date">
     <div class="card-body">
-        <label for="datepicker">What day would you like to fill out a form for?</label>
+        <label class="typeFace" for="datepicker">What day would you like to fill out a form for?</label>
+        <div class="card-text">
         <input id="datepicker" type="input">
+        </div>
 
     </div>
 </div>
+<div class="card">
+    <div class="card-body">
+
+    <h6>Level of intent:
+     0 = No thoughts |
+     1 = Fleeting thoughts |
+     2 = More intense thoughts |
+     3 = Very intense thoughts |
+     4 = Developing specific plan |
+     5 = Acting on plan
+     </h6>
+    </div>
+</div>{{!f end of thoughts chart}}
 <div class="card" id="self-harm">
     <div class="card-body">
-        <label for="s-h-select">Please rate your urge to self harm:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="s-h-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
-
+        <label class="typeFace" for="s-h-select">Please rate your urge to self harm:</label>
+        <div class="card-text">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
-<div class="card" id="use">
-    <div class="card-body">
-        <label for="s-h-select">Please rate your urge to use drugs or alcohol:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="use-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
-
-    </div>
-</div>
+</div>{{!f end of id=self-harm}}
 <div class="card" id="suicidal-thoughts">
     <div class="card-body">
-        <label for="s-h-select">Please rate your the intensity of your suicidal thoughts and urges:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="s-t-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
-
+        <label class="typeFace" for="s-h-select">Please rate your the intensity of your suicidal thoughts and urges: </label>
+        <div class="card-text">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
+</div>{{!f end of id=suicidal-thoughts}}
+<div class="card" id="use">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your urge to use drugs or alcohol: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio6" value="0">
+            <label class="form-check-label" for="inlineRadio6">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
+    </div>
+</div>{{!f end of id=use}}
+<div class="card">
+    <div class="card-body">
+
+    <h6>Intensity of emotion:
+     0 = Not at all |
+     1 = A bit |
+     2 = Somewhat |
+     3 = Rather Strong |
+     4 = VERY Strong |
+     5 = EXTREMELY STRONG
+     </h6>
+    </div>
+</div>{{!f end of emotional level chart}}
 <div class="card" id="ovrl-emotion">
     <div class="card-body">
-        <label for="s-h-select">Please rate your overall emotional level:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="ovrl-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your overall level of compassion: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
 
     </div>
-</div>
+</div>{{!f end of id=ovrl-emotion/compassion}}
 <div class="card" id="self-accept">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current self-acceptance:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="accept-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current self-acceptance: </label>
+        <div class="card-text">
 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
+</div>{{!f end of id=self-accept}}
 <div class="card" id="anger">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current anger level:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="anger-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current anger level: </label>
+        <div class="card-text">
 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
+</div>{{!f end of id=anger}}
 <div class="card" id="joy">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current joy level:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="joy-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current joy level: </label>
+        <div class="card-text">
+
+       <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
 
     </div>
-</div>
+</div>{{!f end of id=joy}}
 <div class="card" id="shame">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current shame level:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="shame-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current shame level: </label>
+        <div class="card-text">
 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
+</div>{{!f end of id=shame}}
 <div class="card" id="sadness">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current level of sadness:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="sad-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current level of sadness: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
 
     </div>
-</div>
+</div>{{!f end of id=sadness}}
 <div class="card" id="fear">
     <div class="card-body">
-        <label for="s-h-select">Please rate your current fear level:</label>
-        <select class="form-select form-select-sm" aria-label=".form-select-sm example" id="fear-select">
-            <option value="0">Zero</option>
-            <option value="1">One</option>
-            <option value="2">Two</option>
-            <option value="3">Three</option>
-            <option value="4">Four</option>
-            <option value="5">Five</option>
-        </select>
+        <label class="typeFace" for="s-h-select">Please rate your current fear level: </label>
+        <div class="card-text">
 
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio0" value="0">
+            <label class="form-check-label" for="inlineRadio0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="1">
+            <label class="form-check-label" for="inlineRadio1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="2">
+            <label class="form-check-label" for="inlineRadio2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio3" value="3">
+            <label class="form-check-label" for="inlineRadio3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio4" value="3">
+            <label class="form-check-label" for="inlineRadio4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio5" value="5">
+            <label class="form-check-label" for="inlineRadio5">5</label>
+        </div>
+        </div>
     </div>
-</div>
+</div>{{!f end of id=fear}}
 <div class="card" id="notes">
     <div class="card-body">
-        <label for="s-h-select">Please elaborate on any thoughts around self harm and suicide, as well as any notes on your emotional levels:</label>
+        <label class="typeFace" for="s-h-select">Please elaborate on any thoughts around self harm and suicide, as well as any notes on
+            your emotional levels: </label>
         <div class="form-floating">
             <textarea class="form-control" placeholder="Leave a comment here" id="notes-body"
                 style="height: 100px"></textarea>
@@ -155,6 +365,6 @@
         </div>
 
     </div>
-</div>
+</div>{{!f end of id=notes}}
 <button type="button" id="form-submit" class="btn-lg">Submit</button>
 <script src="./js/ask.js"></script>
