@@ -1,20 +1,30 @@
 const express = require('express');
 const router = express.Router();
-const { User, Data } = require('../models');
+const { User, Data, Professional } = require('../models');
 const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
     console.log('hello')
-    res.render("home")
+    res.render("home", {
+        user: req.session.user
+    })
 })
 router.get("/ask", (req, res) => {
-    console.log('hello')
-    res.render("ask")
+    if(req.session.user) {
+        res.render("ask", {
+            user: req.session.user
+        })
+
+    }else{
+        res.redirect("login")
+    }
 })
 router.get("/login", (req, res) => {
     console.log('hello')
-    res.render("login")
+    res.render("login", {
+        user: req.session.user
+    })
 })
 router.get("/profile", (req, res) => {
     console.log('hello')
@@ -56,18 +66,22 @@ router.post("/login", (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
-        }
+        },
+        include: [Professional]
     }).then(foundUser => {
         if (!foundUser) {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+                const healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
                 req.session.user = {
                     first_name: foundUser.first_name,
                     last_name: foundUser.last_name,
                     email: foundUser.email,
                     id: foundUser.id,
-                    logged_in: true
+                    logged_in: true,
+                    healthPro: healthPro,
+                    institution: foundUser.Professional.institution
                 }
                 res.render("profile", {
                     user: req.session.user
@@ -112,11 +126,34 @@ router.post("/newForm", (req, res) => {
         notes: req.body.notes,
         UserId:req.session.user.id
     }).then(newForm=>{
-        res.redirect("profile")
+        const hbsData = newForm.get({plain:true})
+        res.json({
+            data: hbsData,
+            user:req.session.user
+        })
     }).catch(err=>{
         console.log(err)
         res.json(err)
     })
 })
 
+router.get("/form",(req,res)=>{
+    if(req.session.user){
+        Data.findOne({
+        where: {
+            UserId:req.session.user.id,
+        },
+        order: [["id",'DESC']]
+    }).then(formData =>{
+        const hbsData = formData.get({plain:true})
+        res.render("form",{
+            data:hbsData,
+            user:req.session.user
+
+        })
+    })
+}else{
+    res.redirect("login")
+}
+})
 module.exports = router;
