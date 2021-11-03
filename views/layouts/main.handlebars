@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="css/style.css">
   <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
     <title>Document</title>
   </head>
   <body>
@@ -26,7 +27,7 @@
         <h1 class="mentalHealth"><a href='/'>Mental Health Tracker</a></h1>
       </header>
       <nav>
-        {{#if user.logged_in}}
+        {{#if user.id}}
           <a class="d-flex flex-row-reverse" href='/profile'>Profile</a>
           |
           <a class="d-flex flex-row-reverse" href='/logout'>logout</a>
@@ -38,5 +39,7 @@
     </div>
     {{{body}}}
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>
