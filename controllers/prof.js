@@ -112,29 +112,29 @@ router.get("/patients", async (req, res) => {
     const hbsPro = foundPro.get({ plain: true })
     for (const user of hbsPro.Users) {
       // console.log(user)
-      
-      const foundData =  await Data.findAll({
+
+      const foundData = await Data.findAll({
         where: {
-          
-          UserId:user.id
+
+          UserId: user.id
         }
-        
-      },{
-        order: ["id","DESC"]
+
+      }, {
+        order: ["id", "DESC"]
       })
-        const readData = foundData.map(data => data.get({plain:true}))
-        user.dbtData = readData
-        console.log(user)
-      
+      const readData = foundData.map(data => data.get({ plain: true }))
+      user.dbtData = readData
+      console.log(user)
+
     }
     res.render('patients', {
       patients: hbsPro.Users
     })
   }
 
-  
+
   else {
-  res.status(401).json("You must be logged in as a healthcare professional to view this page")
-}
+    res.status(401).json("You must be logged in as a healthcare professional to view this page")
+  }
 })
 module.exports = router;

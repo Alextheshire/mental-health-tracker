@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
     })
 })
 router.get("/ask", (req, res) => {
-    if(req.session.user) {
+    if (req.session.user) {
         res.render("ask", {
             user: req.session.user
         })
 
-    }else{
+    } else {
         res.redirect("login")
     }
 })
@@ -26,9 +26,27 @@ router.get("/login", (req, res) => {
         user: req.session.user
     })
 })
-
-
-
+router.get("/chart", (req, res) => {
+    if (req.session.user) {
+        res.render('chart')
+    } else {
+        res.render('login')
+    }
+})
+router.get("/api/chart", (req, res) => {
+    if (req.session.user) {
+        Data.findAll({
+            where: {
+                Userid: req.session.user.id
+            },
+            order: [['date', 'DESC']]
+        }).then(foundData => {
+            res.json(foundData)
+        })
+    } else {
+        res.render('login')
+    }
+})
 // Data.findAll({
 //     include: [User],
 //     order: ['date']
@@ -126,46 +144,54 @@ router.post("/newForm", (req, res) => {
         sadness_grade: req.body.sadness_grade,
         fear_grade: req.body.fear_grade,
         notes: req.body.notes,
-        UserId:req.session.user.id
-    }).then(newForm=>{
-        const hbsData = newForm.get({plain:true})
+        UserId: req.session.user.id
+    }).then(newForm => {
+        const hbsData = newForm.get({ plain: true })
         res.json({
             data: hbsData,
-            user:req.session.user
+            user: req.session.user
         })
-    }).catch(err=>{
+    }).catch(err => {
         console.log(err)
         res.json(err)
     })
 })
 
-router.get("/form",(req,res)=>{
-    if(req.session.user){
+router.get("/form", (req, res) => {
+    if (req.session.user) {
         Data.findOne({
-        where: {
-            UserId:req.session.user.id,
-        },
-        order: [["id",'DESC']]
-    }).then(formData =>{
-        const hbsData = formData.get({plain:true})
-        res.render("form",{
-            data:hbsData,
-            user:req.session.user
+            where: {
+                UserId: req.session.user.id,
+            },
+            order: [["id", 'DESC']]
+        }).then(formData => {
+            const hbsData = formData.get({ plain: true })
+            res.render("form", {
+                data: hbsData,
+                user: req.session.user
 
+            })
         })
-    })
-}else{
-    res.redirect("login")
-}
+    } else {
+        res.redirect("login")
+    }
 })
 
-router.get("/form/:id", (req,res)=> {
-    Data.findByPk(req.params.id).then(foundForm=>{
-        const hbsForm = foundForm.get({plain:true})
-        res.render("form",{
+router.get("/form/:id", (req, res) => {
+    Data.findByPk(req.params.id).then(foundForm => {
+        const hbsForm = foundForm.get({ plain: true })
+        res.render("form", {
             data: hbsForm,
             user: req.session.user
         })
     })
 })
+
+router.get("/resources", (req, res) => {
+    console.log('hello')
+    res.render("resources")
+})
+
+
+
 module.exports = router;
