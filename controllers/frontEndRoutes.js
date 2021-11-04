@@ -180,4 +180,12 @@ router.get("/form/:id", (req, res) => {
         })
     })
 })
+
+router.get("/resources", (req, res) => {
+    console.log('hello')
+    res.render("resources")
+})
+
+
+
 module.exports = router;
