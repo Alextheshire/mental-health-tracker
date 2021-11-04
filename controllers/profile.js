@@ -12,7 +12,6 @@ router.get("/profile",(req,res)=>{
             
         }).then(foundUser=>{
             const hbsUser = foundUser.get({plain:true})
-            console.log(hbsUser)
             res.render("profile", {
                 user: hbsUser
             })
