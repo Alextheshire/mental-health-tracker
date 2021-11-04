@@ -9,7 +9,7 @@
     <link href = "https://code.jquery.com/ui/1.10.4/themes/ui-lightness/jquery-ui.css" rel = "stylesheet">
     {{!-- jquery link --}}
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Fira+Sans:wght@600&family=Gentium+Book+Basic&display=swap" rel="stylesheet">
           {{!-- google fonts link --}}
 
@@ -17,6 +17,7 @@
     <link rel="stylesheet" href="css/style.css">
   <script src = "https://code.jquery.com/jquery-1.10.2.js"></script>
   <script src = "https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+  
     <title>Document</title>
   </head>
   <body>
@@ -27,7 +28,7 @@
     <a class="btn btnText mentalHealth fs-1 " href='/'> Mental Health Tracker</a>
     
     <div id="navbarNavAltMarkup">
-      {{#if user.logged_in}}
+      {{#if user.id}}
       <div>
         <a class="btn btnColor" aria-current="page" href='/profile'>Profile</a>
          <a class="btn btnColor" aria-current="page" href='/logout'>Logout</a>
@@ -40,5 +41,7 @@
 </nav>
     {{{body}}}
 
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
   </body>
 </html>

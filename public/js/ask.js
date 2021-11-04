@@ -5,7 +5,7 @@ $("#datepicker").datepicker("option", "dateFormat", "yy-mm-dd");
 
 $("#form-submit").on("click", async (event) => {
     event.preventDefault();
-    const date = $("#datepicker");
+    const date = $("#datepicker").val();
     const selfharm_grade = $("#self-harm")[0];
     const use_grade = $("#use")[0];
     const suicidal_thoughts_grade = $("#suicidal-thoughts")[0];
@@ -78,33 +78,34 @@ $("#form-submit").on("click", async (event) => {
             fear = parseInt(radio.value)
         }
     }
-    if(date&&selfharm&&use&&suicidal_thoughts&&ovrl_emotion&&self_accept&&anger&&joy&&sadness&&shame&&fear){
-
-        const resp = await fetch('/newForm', {
-            method: 'POST',
-            body: JSON.stringify({
-                date: date,
-                selfharm_grade: selfharm,
-                use_grade: use,
-                suicidal_thoughts_grade:suicidal_thoughts,
-                ovrl_emotion_grade:ovrl_emotion,
-                self_accept_grade:self_accept,
-                anger_grade:anger,
-                joy_grade:joy,
-                shame_grade:shame,
-                sadness_grade:sadness,
-                fear_grade:fear,
-                notes:notes
-            }),
-            headers: { 'Content-Type': 'application/json' }
-        })
+    // if(date&&selfharm&&use&&suicidal_thoughts&&ovrl_emotion&&self_accept&&anger&&joy&&sadness&&shame&&fear){
         
-        if (resp.ok) {
-            location.href = '/form'
-        } else {
-            alert('Error')
-        }
+    // } else {
+    //     alert("Please fill out every field.")
+    // }
+    const resp = await fetch('/newForm', {
+        method: 'POST',
+        body: JSON.stringify({
+            date: date,
+            selfharm_grade: selfharm,
+            use_grade: use,
+            suicidal_thoughts_grade:suicidal_thoughts,
+            ovrl_emotion_grade:ovrl_emotion,
+            self_accept_grade:self_accept,
+            anger_grade:anger,
+            joy_grade:joy,
+            shame_grade:shame,
+            sadness_grade:sadness,
+            fear_grade:fear,
+            notes:notes
+        }),
+        headers: { 'Content-Type': 'application/json' }
+    })
+    
+    if (resp.ok) {
+        location.href = '/form'
     } else {
-        alert("Please fill out every field.")
+        alert('Error')
     }
+    
 })
