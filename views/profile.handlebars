@@ -1,7 +1,7 @@
 <div class="container justify-content-md-center">
   <div class="row justify-content-center g-lg-5 py-5">
 
-    <h1 class="text-center "> welcome {{user.first_name}} {{user.last_name}}</h1>
+    <h1 class="text-center mentalHealth "> Welcome {{user.first_name}} {{user.last_name}}</h1>
     {{!-- link to questionaire page --}}
     {{!-- link to past questionaires --}}
     <p class="typeFace">
@@ -11,25 +11,27 @@
       throughout the day or days past.The diary card is also used to keep track of where you are with thoughts about
       self harm.
     </p>
-    <a href="./ask"><Button class="btn btn-secondary btn-lg">DBT Diary Card</Button></a>
+    <a href="./ask"><Button class="btn btnColor btn-lg">DBT Diary Card</Button></a>
 
     <p class="typeFace">
       Select the option below to access your past DBT Diary Cards so that you may either print them out for your
       therapist or save them on your computer for your own use.
     </p>
-    <a href="./form"><Button class="btn btn-secondary btn-lg">Past DBT Diary Card</Button></a>
+    <a href="./form"><Button class="btn btnColor btn-lg">Past DBT Diary Card</Button></a>
+
+
     <div class="dropdown">
-  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-    Past DBT Form
-  </button>
-  <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-      {{#each user.Data}}
-      <li><a class="dropdown-item" href="/form/{{id}}">{{date}}</a></li>
-      {{/each}}
-  </ul>
-</div>
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Past DBT Form
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {{#each user.Data}}
+        <li><a class="dropdown-item" href="/form/{{id}}">{{date}}</a></li>
+        {{/each}}
+      </ul>
 
-
+    </div>
 
   </div>
 </div>

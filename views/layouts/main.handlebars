@@ -25,15 +25,15 @@
 <nav class="navbar mentalHealth navbar-light" >
  
   <div class="container-fluid ">
-    <a class="navbar-brand fs-1 " href='/'>Mental Health Tracker</a>
-    </button>
+    <a class="btn btnText mentalHealth fs-1 " href='/'> Mental Health Tracker</a>
+    
     <div id="navbarNavAltMarkup">
       {{#if user.id}}
-      <div class="navbar-nav ">
-        <a class="nav-link active fs-2" aria-current="page" href='/profile'>Profile</a>
-         <a class="nav-link active fs-2" aria-current="page" href='/logout'>Logout</a>
+      <div>
+        <a class="btn btnColor" aria-current="page" href='/profile'>Profile</a>
+         <a class="btn btnColor" aria-current="page" href='/logout'>Logout</a>
          {{else}}
-          <a class="nav-link active fs-2" aria-current="page" href='/login'>Login</a>
+          <a class="btn btnColor" aria-current="page" href='/login'>Login</a>
           {{/if}}
       </div>
     </div>
