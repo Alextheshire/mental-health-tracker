@@ -1,10 +1,33 @@
+:root{
+    --navBar:  #4B687D;
+    --btns: #B5C1C9;
+    --accent: #e3f2fd;
+
+    --test: red;
+}
+body{
+    background-color: var(--accent);
+}
 .typeFace{
     font-family: 'Gentium Book Basic';
     font-size: 20px;
 }
 .mentalHealth{
-    font-family: 'Cinzel';
+    font-family: 'Cinzel';    
 }
 h6{
 font-family: 'Fira Sans';
+
+}
+
+
+nav{
+   background-color: var(--navBar);
+
+}
+.btnColor{
+    background-color: var(--btns) ;
+}
+.btnText{
+    color: var(--btns);
 }

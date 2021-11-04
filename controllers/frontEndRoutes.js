@@ -26,12 +26,6 @@ router.get("/login", (req, res) => {
         user: req.session.user
     })
 })
-router.get("/profile", (req, res) => {
-    console.log('hello')
-    res.render("profile", {
-        user: req.session.user
-    })
-})
 
 // Data.findAll({
 //     include: [User],
@@ -155,5 +149,15 @@ router.get("/form",(req,res)=>{
 }else{
     res.redirect("login")
 }
+})
+
+router.get("/form/:id", (req,res)=> {
+    Data.findByPk(req.params.id).then(foundForm=>{
+        const hbsForm = foundForm.get({plain:true})
+        res.render("form",{
+            data: hbsForm,
+            user: req.session.user
+        })
+    })
 })
 module.exports = router;
