@@ -45,6 +45,130 @@ const createChart = async () => {
 }
 const createLine = async () => {
     selfHarm = []
+    shame = []
+    suicidal = []
+    week= []
+    const response = await fetch('/api/user');
+    const res = await response.json()
+    for (i = 0; i < res.Data.length; i++) {
+        selfHarm.push(res.Data[i].selfharm_grade)
+        shame.push(res.Data[i].shame_grade)
+        suicidal.push(res.Data[i].suicidal_thoughts_grade)
+        week.push('week ' + i)
+    }
+    const data = {
+        labels: week,
+        datasets: [{
+            label: 'selfHarm',
+            data: selfHarm,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: anger,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: fear,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    }
+    const config = {
+        type: 'line',
+        data: data,
+      };
+      
+    const myLine = new Chart(
+        document.getElementById('myLine'),
+        config
+    )
+}
+const createLine = async () => {
+    anger = []
+    fear = []
+    sadness = []
+    const response = await fetch('/api/user');
+    const res = await response.json()
+    for (i = 0; i < res.Data.length; i++) {
+        anger.push(res.Data[i].anger_grade)
+        fear.push(res.Data[i].fear_grade)
+        sadness.push(res.Data[i].sadness_grade)
+    }
+    const data = {
+        labels: ['week1', 'week2', 'week3'],
+        datasets: [{
+            label: 'selfHarm',
+            data: selfHarm,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: anger,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: fear,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: joy,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: overall,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: sadness,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: selfAccept,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: shame,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        },{
+            label: 'selfHarm',
+            data: suicidal,
+            fill: false,
+            borderColor: 'rgb(75, 192, 192)',
+            tension: 0.1
+        }]
+    }
+    const config = {
+        type: 'line',
+        data: data,
+      };
+      
+    const myLine = new Chart(
+        document.getElementById('myLine'),
+        config
+    )
+}
+const createLine = async () => {
+    selfHarm = []
     anger = []
     fear = []
     joy = []
