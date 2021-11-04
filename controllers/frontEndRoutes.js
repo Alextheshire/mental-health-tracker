@@ -4,7 +4,7 @@ const { User, Data } = require('../models');
 const bcrypt = require("bcrypt");
 
 
-router.get("/home", (req, res) => {
+router.get("/", (req, res) => {
     console.log('hello')
     res.render("home")
 })
@@ -25,6 +25,14 @@ router.get("/chart", (req, res) => {
         user:req.session.user
     })
 })
+
+router.get("/api/user", (req, res) => {
+    User.findByPk(req.session.user.id, {
+        include: [Data]
+        }).then(dData => {
+            res.json(dData)
+        })
+    })
 // Data.findAll({
 //     include: [User],
 //     order: ['date']
