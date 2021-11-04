@@ -31,14 +31,16 @@ const seed = async ()=>{
             password:"password",
             email:"joe@joe.joe",
             first_name: "Joe",
-            last_name: "Rehfuss"
+            last_name: "Rehfuss",
+            ProfessionalId:1
         },
         {
 
             password:"password",
             email:"louis@joe.joe",
             first_name: "Louis",
-            last_name: "Coleman"
+            last_name: "Coleman",
+            ProfessionalId:1
         },
         {
 
@@ -75,7 +77,7 @@ const seed = async ()=>{
             sadness_grade: 3,
             fear_grade: 3,
             notes: '3',
-            date: "2020-03-05",
+            date: "2020-03-06",
             UserId: 1
         },
         {
@@ -90,7 +92,7 @@ const seed = async ()=>{
             sadness_grade: 3,
             fear_grade: 3,
             notes: '1',
-            date: "2020-03-05",
+            date: "2020-04-05",
             UserId: 1
         },
         {
