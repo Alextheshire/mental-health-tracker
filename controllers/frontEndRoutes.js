@@ -27,6 +27,8 @@ router.get("/login", (req, res) => {
     })
 })
 
+
+
 // Data.findAll({
 //     include: [User],
 //     order: ['date']
@@ -67,7 +69,13 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                const healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
+                var healthPro= "None"
+                var institution = "None"
+                if(foundUser.Professional){
+
+                    healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
+                    institution=foundUser.Professional.institution
+                }
                 req.session.user = {
                     first_name: foundUser.first_name,
                     last_name: foundUser.last_name,
@@ -75,7 +83,7 @@ router.post("/login", (req, res) => {
                     id: foundUser.id,
                     logged_in: true,
                     healthPro: healthPro,
-                    institution: foundUser.Professional.institution
+                    institution: institution
                 }
                 res.render("profile", {
                     user: req.session.user
