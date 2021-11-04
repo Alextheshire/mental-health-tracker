@@ -1,14 +1,17 @@
 const express = require('express');
 const router = express.Router();
-const { User, Data } = require('../models');
+const { User, Data, Professional } = require('../models');
 const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
     console.log('hello')
-    res.render("home")
+    res.render("home", {
+        user: req.session.user
+    })
 })
 router.get("/ask", (req, res) => {
+<<<<<<< HEAD
     Data.findByPk(req.session.user.id, {
     }).then(dData => {
         const hbsdData = dData.get({ plain: true });
@@ -23,6 +26,21 @@ router.get("/chart", (req, res) => {
     console.log('hello')
     res.render("chart",{
         user:req.session.user
+=======
+    if(req.session.user) {
+        res.render("ask", {
+            user: req.session.user
+        })
+
+    }else{
+        res.redirect("login")
+    }
+})
+router.get("/login", (req, res) => {
+    console.log('hello')
+    res.render("login", {
+        user: req.session.user
+>>>>>>> dev
     })
 })
 
@@ -51,10 +69,10 @@ router.post("/signup", (req, res) => {
             last_name: newUser.last_name,
             email: newUser.email,
             id: newUser.id,
-            logged_in:true
+            logged_in: true
         }
-        res.render("profile",{
-            user:req.session.user
+        res.render("profile", {
+            user: req.session.user
         });
     }).catch(err => {
         console.log(err);
@@ -66,21 +84,25 @@ router.post("/login", (req, res) => {
     User.findOne({
         where: {
             email: req.body.email
-        }
+        },
+        include: [Professional]
     }).then(foundUser => {
         if (!foundUser) {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
+                const healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
                 req.session.user = {
                     first_name: foundUser.first_name,
                     last_name: foundUser.last_name,
                     email: foundUser.email,
                     id: foundUser.id,
-                    logged_in:true
+                    logged_in: true,
+                    healthPro: healthPro,
+                    institution: foundUser.Professional.institution
                 }
-                res.render("profile",{
-                    user:req.session.user
+                res.render("profile", {
+                    user: req.session.user
                 })
             } else {
                 res.status(401).json({ message: "incorrect email or password" })
@@ -91,7 +113,7 @@ router.post("/login", (req, res) => {
         res.status(500).json(err);
     })
 })
-router.get("/logout",(req,res)=> {
+router.get("/logout", (req, res) => {
     req.session.destroy();
     res.redirect("login")
 })
@@ -106,4 +128,60 @@ router.delete("/:id", (req, res) => {
     })
 })
 
+router.post("/newForm", (req, res) => {
+    Data.create({
+        date: req.body.date,
+        selfharm_grade: req.body.selfharm_grade,
+        use_grade: req.body.use_grade,
+        suicidal_thoughts_grade: req.body.suicidal_thoughts_grade,
+        ovrl_emotion_grade: req.body.ovrl_emotion_grade,
+        self_accept_grade: req.body.self_accept_grade,
+        anger_grade: req.body.anger_grade,
+        joy_grade: req.body.joy_grade,
+        shame_grade: req.body.shame_grade,
+        sadness_grade: req.body.sadness_grade,
+        fear_grade: req.body.fear_grade,
+        notes: req.body.notes,
+        UserId:req.session.user.id
+    }).then(newForm=>{
+        const hbsData = newForm.get({plain:true})
+        res.json({
+            data: hbsData,
+            user:req.session.user
+        })
+    }).catch(err=>{
+        console.log(err)
+        res.json(err)
+    })
+})
+
+router.get("/form",(req,res)=>{
+    if(req.session.user){
+        Data.findOne({
+        where: {
+            UserId:req.session.user.id,
+        },
+        order: [["id",'DESC']]
+    }).then(formData =>{
+        const hbsData = formData.get({plain:true})
+        res.render("form",{
+            data:hbsData,
+            user:req.session.user
+
+        })
+    })
+}else{
+    res.redirect("login")
+}
+})
+
+router.get("/form/:id", (req,res)=> {
+    Data.findByPk(req.params.id).then(foundForm=>{
+        const hbsForm = foundForm.get({plain:true})
+        res.render("form",{
+            data: hbsForm,
+            user: req.session.user
+        })
+    })
+})
 module.exports = router;

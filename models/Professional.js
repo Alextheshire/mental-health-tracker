@@ -27,6 +27,9 @@ Professional.init({
         type:DataTypes.STRING,
         
     },
+    title:{
+        type:DataTypes.STRING,
+    },
     institution: {
         type:DataTypes.STRING
     }

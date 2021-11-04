@@ -1,7 +1,30 @@
 const sequelize = require("../config/connection");
-const {User,Data} = require("../models")
+const {User,Data,Professional} = require("../models")
 
 const seed = async ()=>{
+    const proData = await Professional.bulkCreate([
+        {
+          
+            password:"password",
+            email:"denise@therapist.com",
+            first_name: "Denise",
+            last_name: "Richards",
+            title: "M.D.",
+            institution: "Sound Mental Health"
+        },
+        {
+            password:"password",
+            email:"greg@therapist.com",
+            first_name: "Greg",
+            last_name: "Davis",
+            title: "Ph.D.",
+            institution: "Sound Mental Health"
+            
+        }
+    ],{
+        individualHooks:true
+    })
+    
     const userData = await User.bulkCreate([
         {
           
@@ -22,18 +45,23 @@ const seed = async ()=>{
             password:"password",
             email:"brett@joe.joe",
             first_name: "Brett",
-            last_name: "Belka"
+            last_name: "Belka",
+            ProfessionalId:1
         },
         {
 
             password:"password",
             email:"alex@joe.joe",
             first_name: "Alex",
-            last_name: "Beres"
+            last_name: "Beres",
+            ProfessionalId:1
         },
     ],{
         individualHooks:true
     })
+
+   
+
     const dataData = await Data.bulkCreate([
         {
             selfharm_grade: 3,

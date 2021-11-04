@@ -1,0 +1,71 @@
+<body style="background-color: white;">
+    <div class="container">
+        <p></p>
+    </div>
+
+<div class="container">
+    <div class="row mx-2" style="height:10vh;">
+        <div class="col-3 border border-dark border-2 fw-bold">
+            Date: {{data.date}}
+        </div>
+        <div class="col-3 border border-dark border-2 fw-bold">
+            {{user.first_name}}
+        </div>
+        <div class="col-3 border border-dark border-2 fw-bold">
+            {{user.last_name}}
+        </div>
+        <div class="col-3 border border-dark border-2 text-center fw-bold">
+            Provider Name: {{user.healthPro}}
+            <br>
+            Institution: {{user.institution}}
+        </div>
+
+    </div>
+
+    <div class="row mx-2">
+        <div class="col-12 border border-dark border-2">
+            <table class="table">
+                <thead>
+                    <tr>
+                        <th scope="col">Urge to Self Harm</th>
+                        <th scope="col">Urge to Use</th>
+                        <th scope="col">Suicidal Thoughts</th>
+                        <th scope="col">Compassion</th>
+                        <th scope="col">Self-Acceptance</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>{{data.selfharm_grade}}</td>
+                        <td>{{data.use_grade}}</td>
+                        <td>{{data.suicidal_thoughts_grade}}</td>
+                        <td>{{data.ovrl_emotion_grade}}</td>
+                        <td>{{data.self_accept_grade}}</td>
+                    </tr>
+                </tbody>
+                <thead>
+                    <th scope="col">Anger</th>
+                    <th scope="col">Joy</th>
+                    <th scope="col">Shame</th>
+                    <th scope="col">Sadness</th>
+                    <th scope="col">Fear</th>
+                </thead>
+                <tbody>
+                    <td>{{data.anger_grade}}</td>
+                    <td>{{data.joy_grade}}</td>
+                    <td>{{data.shame_grade}}</td>
+                    <td>{{data.sadness_grade}}</td>
+                    <td>{{data.fear_grade}}</td>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <div class="row mx-2" style="height: 25vh;">
+
+        <div class="col-1 border border-dark border-2">Notes:</div>
+        <div class="col-11 border border-dark border-2">{{data.notes}}</div>
+    </div>
+
+</div>
+
+</body>

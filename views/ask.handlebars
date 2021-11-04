@@ -1,4 +1,369 @@
-{{#each}}
-{{>questionaire}}
+<div class="card" id="date">
+    <div class="card-body">
+        <label class="typeFace" for="datepicker">What day would you like to fill out a form for?</label>
+        <div class="card-text">
+        <input id="datepicker" type="input">
+        </div>
 
-{{/each}}
+    </div>
+</div>
+<div class="card">
+    <div class="card-body">
+
+    <h6>Level of intent:
+     0 = No thoughts |
+     1 = Fleeting thoughts |
+     2 = More intense thoughts |
+     3 = Very intense thoughts |
+     4 = Developing specific plan |
+     5 = Acting on plan
+     </h6>
+    </div>
+</div>{{!f end of thoughts chart}}
+<form class="card" id="self-harm">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your urge to self harm:</label>
+        <div class="card-text">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm0" value="0">
+            <label class="form-check-label" for="selfHarm0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm1" value="1">
+            <label class="form-check-label" for="selfHarm1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm2" value="2">
+            <label class="form-check-label" for="selfHarm2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm3" value="3">
+            <label class="form-check-label" for="selfHarm3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm4" value="4">
+            <label class="form-check-label" for="selfHarm4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfHarm" id="selfHarm5" value="5">
+            <label class="form-check-label" for="selfHarm5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=self-harm}}
+<form class="card" id="suicidal-thoughts">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your the intensity of your suicidal thoughts and urges: </label>
+        <div class="card-text">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts0" value="0">
+            <label class="form-check-label" for="suicidalThoughts0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts1" value="1">
+            <label class="form-check-label" for="suicidalThoughts1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts2" value="2">
+            <label class="form-check-label" for="suicidalThoughts2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts3" value="3">
+            <label class="form-check-label" for="suicidalThoughts3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts4" value="4">
+            <label class="form-check-label" for="suicidalThoughts4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="suicidalThoughts" id="suicidalThoughts5" value="5">
+            <label class="form-check-label" for="suicidalThoughts5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=suicidal-thoughts}}
+<form class="card" id="use">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your urge to use drugs or alcohol: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol0" value="0">
+            <label class="form-check-label" for="drugOrAlcohol0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol1" value="1">
+            <label class="form-check-label" for="drugOrAlcohol1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol2" value="2">
+            <label class="form-check-label" for="drugOrAlcohol2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol3" value="3">
+            <label class="form-check-label" for="drugOrAlcohol3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol4" value="4">
+            <label class="form-check-label" for="drugOrAlcohol4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="drugOrAlcohol" id="drugOrAlcohol5" value="5">
+            <label class="form-check-label" for="drugOrAlcohol5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=use}}
+<form class="card">
+    <div class="card-body">
+
+    <h6>Intensity of emotion:
+     0 = Not at all |
+     1 = A bit |
+     2 = Somewhat |
+     3 = Rather Strong |
+     4 = VERY Strong |
+     5 = EXTREMELY STRONG
+     </h6>
+    </div>
+</form>{{!f end of emotional level chart}}
+<form class="card" id="ovrl-emotion">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your overall level of compassion: </label>
+        <div class="card-text">
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel0" value="0">
+            <label class="form-check-label" for="emotionalLevel0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel1" value="1">
+            <label class="form-check-label" for="emotionalLevel1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel2" value="2">
+            <label class="form-check-label" for="emotionalLevel2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel3" value="3">
+            <label class="form-check-label" for="emotionalLevel3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel4" value="4">
+            <label class="form-check-label" for="emotionalLevel4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="emotionalLevel" id="emotionalLevel5" value="5">
+            <label class="form-check-label" for="emotionalLevel5">5</label>
+        </div>
+        </div>
+
+    </div>
+</form>{{!f end of id=ovrl-emotion/compassion}}
+<form class="card" id="self-accept">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current self-acceptance: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance0" value="0">
+            <label class="form-check-label" for="selfAcceptance0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance1" value="1">
+            <label class="form-check-label" for="selfAcceptance1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance2" value="2">
+            <label class="form-check-label" for="selfAcceptance2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance3" value="3">
+            <label class="form-check-label" for="selfAcceptance3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance4" value="4">
+            <label class="form-check-label" for="selfAcceptance4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="selfAcceptance" id="selfAcceptance5" value="5">
+            <label class="form-check-label" for="selfAcceptance5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=self-accept}}
+<form class="card" id="anger">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current anger level: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger0" value="0">
+            <label class="form-check-label" for="anger0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger1" value="1">
+            <label class="form-check-label" for="anger1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger2" value="2">
+            <label class="form-check-label" for="anger2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger3" value="3">
+            <label class="form-check-label" for="anger3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger4" value="4">
+            <label class="form-check-label" for="anger4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="anger" id="anger5" value="5">
+            <label class="form-check-label" for="anger5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=anger}}
+<form class="card" id="joy">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current joy level: </label>
+        <div class="card-text">
+
+       <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy0" value="0">
+            <label class="form-check-label" for="joy0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy1" value="1">
+            <label class="form-check-label" for="joy1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy2" value="2">
+            <label class="form-check-label" for="joy2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy3" value="3">
+            <label class="form-check-label" for="joy3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy4" value="4">
+            <label class="form-check-label" for="joy4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="joy" id="joy5" value="5">
+            <label class="form-check-label" for="joy5">5</label>
+        </div>
+        </div>
+
+    </div>
+</form>{{!f end of id=joy}}
+<form class="card" id="shame">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current shame level: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame0" value="0">
+            <label class="form-check-label" for="shame0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame1" value="1">
+            <label class="form-check-label" for="shame1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame2" value="2">
+            <label class="form-check-label" for="shame2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame3" value="3">
+            <label class="form-check-label" for="shame3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame4" value="4">
+            <label class="form-check-label" for="shame4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="shame" id="shame5" value="5">
+            <label class="form-check-label" for="shame5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=shame}}
+<form class="card" id="sadness">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current level of sadness: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness0" value="0">
+            <label class="form-check-label" for="sadness0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness1" value="1">
+            <label class="form-check-label" for="sadness1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness2" value="2">
+            <label class="form-check-label" for="sadness2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness3" value="3">
+            <label class="form-check-label" for="sadness3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness4" value="4">
+            <label class="form-check-label" for="sadness4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="sadness" id="sadness5" value="5">
+            <label class="form-check-label" for="sadness5">5</label>
+        </div>
+        </div>
+
+    </div>
+</form>{{!f end of id=sadness}}
+<form class="card" id="fear">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please rate your current fear level: </label>
+        <div class="card-text">
+
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear0" value="0">
+            <label class="form-check-label" for="fear0">0</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear1" value="1">
+            <label class="form-check-label" for="fear1">1</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear2" value="2">
+            <label class="form-check-label" for="fear2">2</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear3" value="3">
+            <label class="form-check-label" for="fear3">3</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear4" value="4">
+            <label class="form-check-label" for="fear4">4</label>
+        </div>
+        <div class="form-check form-check-inline">
+            <input class="form-check-input" type="radio" name="fear" id="fear5" value="5">
+            <label class="form-check-label" for="fear5">5</label>
+        </div>
+        </div>
+    </div>
+</form>{{!f end of id=fear}}
+<div class="card" id="notes">
+    <div class="card-body">
+        <label class="typeFace" for="s-h-select">Please elaborate on any thoughts around self harm and suicide, as well as any notes on
+            your emotional levels: </label>
+        <div class="form-floating">
+            <textarea class="form-control" placeholder="Leave a comment here" id="notes-body"
+                style="height: 100px"></textarea>
+            <label for="notes-body">Notes</label>
+        </div>
+
+    </div>
+</div>{{!f end of id=notes}}
+<button type="button" id="form-submit" class="btn-lg">Submit</button>
+<script src="./js/ask.js"></script>
