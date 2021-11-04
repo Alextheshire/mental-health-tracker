@@ -3,7 +3,6 @@
     --btns: #B5C1C9;
     --accent: #e3f2fd;
 
-    --test: red;
 }
 body{
     background-color: var(--accent);
@@ -15,19 +14,21 @@ body{
 .mentalHealth{
     font-family: 'Cinzel';    
 }
-h6{
+
+.title{
 font-family: 'Fira Sans';
 
 }
-
 
 nav{
    background-color: var(--navBar);
 
 }
+
 .btnColor{
     background-color: var(--btns) ;
 }
+
 .btnText{
     color: var(--btns);
 }
