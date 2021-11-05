@@ -30,7 +30,6 @@ router.get("/login", (req, res) => {
         })
     }
 })
-
 router.get("/lookup/:email",(req,res)=>{
     console.log("I listened")
     User.findOne({
