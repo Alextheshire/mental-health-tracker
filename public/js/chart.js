@@ -33,7 +33,7 @@ const createChart = async () => {
         data: {
             labels: ['Self Harm', 'Anger', 'Fear', 'Joy', 'Compassion', 'Sadness', 'Self Accept', 'Shame', 'Suicical Thoughts'],
             datasets: [{
-                label: `Choice out of 5 for the last ${durationChart} days`,
+                label: 'Emotional',
                 data: [selfHarmChart/durationChart, angerChart/durationChart, fearChart/durationChart, joyChart/durationChart, compassionChart/durationChart, sadnessChart/durationChart, selfAcceptChart/durationChart, shameChart/durationChart, suicidalChart/durationChart],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -58,9 +58,19 @@ const createChart = async () => {
                     'rgba(255, 50, 255, 1)',
                 ],
                 borderWidth: 1
-            }]
+            }
+        ]
         },
         options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Average of last ${durationChart} Days`,
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
             scales: {
                 y: {
                     beginAtZero: true
