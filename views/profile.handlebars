@@ -1,0 +1,48 @@
+<div class="container justify-content-md-center">
+  <div class="row justify-content-center g-lg-5 py-5">
+
+    <h1 class="text-center mentalHealth "> Welcome {{user.first_name}} {{user.last_name}}</h1>
+    <p class="typeFace">
+      The Dialectical Behavioral Therapy (DBT) Diary Card below can be used as a treatment solution for those who need
+      to regulate their emotions and mental health. It can help those diagnosed with borderline personality disorder,
+      anxiety, and depression. You can fill out the diary card by rating the emotions you have experienced
+      throughout the day or days past.The diary card is also used to keep track of where you are with thoughts about
+      self harm.
+    </p>
+    <a href="./ask"><Button class="btn btnColor btn-lg">DBT Diary Card</Button></a>
+  {{#if user.Data}}
+    <p class="typeFace">
+      Select the option below to access your past DBT Diary Cards so that you may either print them out for your
+      therapist or save them on your computer for your own use.
+    </p>
+<div class="row">
+
+    <div class="col buffer dropdown">
+      <button class="btn btnColor btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Past DBT Form
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        {{#each user.Data}}
+        <li><a class="dropdown-item" href="/form/{{id}}">{{date}}</a></li>
+        {{/each}}
+      </ul>
+    </div>
+    <div class="col buffer">
+    <a href="./form"><Button class="btn btnColor btn-lg">Most Recent DBT Diary Card</Button></a>
+    </div>
+</div>
+
+<div class="buffer">
+  <h6 class="typeFace">View a breakdown of your past DBT chart data</h6>
+  <div style="padding-top: 10px;">
+    <a href="./analytics"><Button class="btn btnColor btn-lg">Data Analytics</Button></a>
+  </div>
+</div>
+
+
+  {{/if}}
+
+
+  </div>
+</div>

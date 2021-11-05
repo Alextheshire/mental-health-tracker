@@ -1,0 +1,28 @@
+<div class="content-wrap container mt-5">
+    {{#each patients}}
+    <div class="row border border-2 border-dark m-5 p-5">
+        <div class="col-4">
+
+            <h3>{{first_name}} {{last_name}}</h3>
+            <h4>{{email}}</h4>
+        </div>
+        <div class="col-4">
+            <div class="dropdown">
+                <button class="btn btn-lg dropdown-toggle btnColor" type="button" id="dropdownMenuButton1"
+                    data-bs-toggle="dropdown" aria-expanded="false">
+                    Select DBT Form
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    {{#each dbtData}}
+                    <li><a class="dropdown-item" href="/form/{{id}}">{{date}}</a></li>
+                    {{/each}}
+                </ul>
+
+            </div>
+        </div>
+        <div class="col-4">
+            <a href="mailto:{{email}}" type="button" class="btn btn-lg btnColor">Send Email</a>
+        </div>
+    </div>
+    {{/each}}
+</div>

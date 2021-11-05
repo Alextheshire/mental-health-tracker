@@ -1,0 +1,20 @@
+
+<div class="container">
+
+<form id="patientSearch">
+  <div class="mb-3">
+    <label for="exampleInputEmail1" class="form-label buffer">
+      <h3 class="mentalHealth">Search for patients by Email:</h3></label>
+    <input type="email" class="form-control" id="emailSearch" aria-describedby="emailHelp">
+  </div>
+ 
+  <button type="submit" class="btn btn-lg btnColor smallBuffer">Search</button>
+</form>
+<div class="m4 buffer" id="searchResults">
+    <h3 class="mentalHealth">Your search has found: <span id="populate"></span></h3>
+    
+    <button type="button" class="btn btn-lg btnColor smallBuffer" id="add">Add Patient</button>
+</div>
+
+<script src="/js/add.js"></script>
+</div>
