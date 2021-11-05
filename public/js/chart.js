@@ -13,20 +13,20 @@ const createChart = async () => {
     joyChart = 0
     compassionChart = 0
     selfAcceptChart = 0
-    durationChart= 0
-        for (i = 0; i < 7; i++) {
-            if (res.length-1 >= i){
-                selfHarmChart = selfHarmChart + ((res[i].selfharm_grade))
-                shameChart = shameChart + ((res[i].shame_grade))
-                suicidalChart = suicidalChart + ((res[i].suicidal_thoughts_grade))
-                angerChart = angerChart + ((res[i].anger_grade))
-                fearChart = fearChart + ((res[i].fear_grade))
-                sadnessChart = sadnessChart + ((res[i].sadness_grade))
-                joyChart = joyChart + ((res[i].joy_grade))
-                compassionChart = compassionChart + ((res[i].ovrl_emotion_grade))
-                selfAcceptChart = selfAcceptChart + ((res[i].self_accept_grade))
-                durationChart++
-            }
+    durationChart = 0
+    for (i = 0; i < 7; i++) {
+        if (res.length - 1 >= i) {
+            selfHarmChart = selfHarmChart + ((res[i].selfharm_grade))
+            shameChart = shameChart + ((res[i].shame_grade))
+            suicidalChart = suicidalChart + ((res[i].suicidal_thoughts_grade))
+            angerChart = angerChart + ((res[i].anger_grade))
+            fearChart = fearChart + ((res[i].fear_grade))
+            sadnessChart = sadnessChart + ((res[i].sadness_grade))
+            joyChart = joyChart + ((res[i].joy_grade))
+            compassionChart = compassionChart + ((res[i].ovrl_emotion_grade))
+            selfAcceptChart = selfAcceptChart + ((res[i].self_accept_grade))
+            durationChart++
+        }
     }
     const myChart = new Chart(ctx, {
         type: 'bar',
@@ -34,7 +34,7 @@ const createChart = async () => {
             labels: ['Self Harm', 'Anger', 'Fear', 'Joy', 'Compassion', 'Sadness', 'Self Accept', 'Shame', 'Suicical Thoughts'],
             datasets: [{
                 label: 'Emotional',
-                data: [selfHarmChart/durationChart, angerChart/durationChart, fearChart/durationChart, joyChart/durationChart, compassionChart/durationChart, sadnessChart/durationChart, selfAcceptChart/durationChart, shameChart/durationChart, suicidalChart/durationChart],
+                data: [selfHarmChart / durationChart, angerChart / durationChart, fearChart / durationChart, joyChart / durationChart, compassionChart / durationChart, sadnessChart / durationChart, selfAcceptChart / durationChart, shameChart / durationChart, suicidalChart / durationChart],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
                     'rgba(54, 162, 235, 0.2)',
@@ -59,18 +59,18 @@ const createChart = async () => {
                 ],
                 borderWidth: 1
             }
-        ]
+            ]
         },
         options: {
-                plugins: {
-                    title: {
-                        display: true,
-                        text: `Average of last ${durationChart} Days`,
-                        font: {
-                            size: 20
-                        }
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Average of last ${durationChart} Days`,
+                    font: {
+                        size: 20
                     }
-                },
+                }
+            },
             scales: {
                 y: {
                     beginAtZero: true
@@ -85,7 +85,7 @@ const createUrge = async () => {
     selfHarm = []
     shame = []
     suicidal = []
-    urgeDays= []
+    urgeDays = []
     const response = await fetch('/api/chart');
     const res = await response.json()
     console.log(res);
@@ -98,21 +98,21 @@ const createUrge = async () => {
     const data = {
         labels: urgeDays,
         datasets: [{
-            label: 'selfHarm',
+            label: 'Self Harm',
             data: selfHarm,
             fill: false,
             backgroundColor: 'rgb(255, 99, 132, 1)',
             borderColor: 'rgb(255, 99, 132, 1)',
             tension: 0.1
-        },{
-            label: 'shame',
+        }, {
+            label: 'Shame',
             data: shame,
             fill: false,
             backgroundColor: 'rgb(50, 20, 64, 1)',
             borderColor: 'rgb(50, 20, 64, 1)',
             tension: 0.1
-        },{
-            label: 'suicidal',
+        }, {
+            label: 'Suicidal',
             data: suicidal,
             fill: false,
             backgroundColor: 'rgb(255, 50, 255, 1)',
@@ -123,8 +123,24 @@ const createUrge = async () => {
     const config = {
         type: 'line',
         data: data,
-      };
-      
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Urges`,
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
     const myLine = new Chart(
         document.getElementById('myLine'),
         config
@@ -134,7 +150,7 @@ const createStresses = async () => {
     anger = []
     fear = []
     sadness = []
-    stressDays= []
+    stressDays = []
     const response = await fetch('/api/chart');
     const res = await response.json()
     for (i = 0; i < res.length; i++) {
@@ -146,21 +162,21 @@ const createStresses = async () => {
     const data = {
         labels: stressDays,
         datasets: [{
-            label: 'anger',
+            label: 'Anger',
             data: anger,
             fill: false,
             backgroundColor: 'rgb(54, 162, 235, 1)',
             borderColor: 'rgb(54, 162, 235, 1)',
             tension: 0.1
-        },{
-            label: 'sadness',
+        }, {
+            label: 'Sadness',
             data: sadness,
             fill: false,
             backgroundColor: 'rgb(255, 159, 64, 1)',
             borderColor: 'rgb(255, 159, 64, 1)',
             tension: 0.1
-        },{
-            label: 'fear',
+        }, {
+            label: 'Fear',
             data: fear,
             fill: false,
             backgroundColor: 'rgb(255, 206, 86, 1)',
@@ -171,8 +187,24 @@ const createStresses = async () => {
     const config = {
         type: 'line',
         data: data,
-      };
-      
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Stresses`,
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
     const myLine = new Chart(
         document.getElementById('myLine2'),
         config
@@ -194,20 +226,20 @@ const createAcceptable = async () => {
     const data = {
         labels: accpetableDays,
         datasets: [{
-            label: 'joy',
+            label: 'Joy',
             data: joy,
             fill: false,
             backgroundColor: 'rgb(75, 192, 192, 1)',
             borderColor: 'rgb(75, 192, 192, 1)',
             tension: 0.1
-        },{
-            label: 'compassion',
+        }, {
+            label: 'Compassion',
             data: compassion,
             fill: false,
             backgroundColor: 'rgb(153, 102, 255, 1)',
             borderColor: 'rgb(153, 102, 255, 1)',
             tension: 0.1
-        },{
+        }, {
             label: 'Self Accept',
             data: selfAccept,
             fill: false,
@@ -219,8 +251,24 @@ const createAcceptable = async () => {
     const config = {
         type: 'line',
         data: data,
-      };
-      
+        options: {
+            plugins: {
+                title: {
+                    display: true,
+                    text: `Acceptables`,
+                    font: {
+                        size: 20
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    };
+
     const myLine = new Chart(
         document.getElementById('myLine3'),
         config

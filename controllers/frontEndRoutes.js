@@ -9,8 +9,9 @@ router.get("/", (req, res) => {
     res.render("home", {
         user: req.session.user
     })
-    }
+    } else {
     res.redirect('profile')
+    }
 })
 router.get("/ask", (req, res) => {
     if (req.session.user) {
