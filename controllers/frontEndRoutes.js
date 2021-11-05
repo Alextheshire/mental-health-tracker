@@ -10,11 +10,7 @@ router.get("/", (req, res) => {
         user: req.session.user
     })
     }else{
-<<<<<<< HEAD
-        res.render("home")
-=======
-        res.redirect('profile')
->>>>>>> dev
+        res.render('home')
     }
 })
 router.get("/ask", (req, res) => {
@@ -37,10 +33,6 @@ router.get("/login", (req, res) => {
     }
 })
 
-<<<<<<< HEAD
-
-=======
->>>>>>> dev
 router.get("/lookup/:email",(req,res)=>{
     console.log("I listened")
     User.findOne({
