@@ -1,7 +1,9 @@
-<div class="container justify-content-md-center">
+<div class="content-wrap container justify-content-md-center">
   <div class="row justify-content-center g-lg-5 py-5">
 
-    <h1 class="text-center mentalHealth "> Welcome {{user.first_name}} {{user.last_name}}</h1>
+    <h1 class="text-center mentalHealth "> Welcome {{prof.first_name}} {{prof.last_name}}</h1>
+    {{!-- link to questionaire page --}}
+    {{!-- link to past questionaires --}}
     <p class="typeFace">
       The Dialectical Behavioral Therapy (DBT) Diary Card below can be used as a treatment solution for those who need
       to regulate their emotions and mental health. It can help those diagnosed with borderline personality disorder,
@@ -9,15 +11,16 @@
       throughout the day or days past.The diary card is also used to keep track of where you are with thoughts about
       self harm.
     </p>
-    <a href="./ask"><Button class="btn btnColor btn-lg">DBT Diary Card</Button></a>
 
     <p class="typeFace">
-      Select the option below to access your past DBT Diary Cards so that you may either print them out for your
-      therapist or save them on your computer for your own use.
+      Select an option below to view your current patients, or add new ones.
     </p>
+    <a href="/patients"><Button class="btn btnColor btn-lg">View Current Patients</Button></a>
+    <a href="/ask"><Button class="btn btnColor btn-lg">Add a Patient</Button></a>
+
 
     <div class="dropdown">
-      <button class="btn btnColor btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
         aria-expanded="false">
         Past DBT Form
       </button>
@@ -28,11 +31,6 @@
       </ul>
 
     </div>
-
-    <a href="./form"><Button class="btn btnColor btn-lg">Past DBT Diary Card</Button></a>
-    <a href="./chart"><Button class="btn btnColor btn-lg">Data Analytics</Button></a>
-
-
 
   </div>
 </div>

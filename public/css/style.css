@@ -1,33 +1,45 @@
-:root{
-    --navBar:  #4B687D;
-    --btns: #B5C1C9;
-    --accent: #e3f2fd;
+:root {
+  --navBar: #4b687d;
+  --btns: #b5c1c9;
+  --accent: #e3f2fd;
+}
+body {
+  background-color: var(--accent);
+  position: relative;
+  min-height: 100vh;
+}
+footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 2.5rem;
+    align-content: center;
+    text-align: center;
+}
+.content-wrap {
+    padding-bottom: 2.5rem;    
+  }
 
-    --test: red;
+.typeFace {
+  font-family: "Gentium Book Basic";
+  font-size: 20px;
 }
-body{
-    background-color: var(--accent);
-}
-.typeFace{
-    font-family: 'Gentium Book Basic';
-    font-size: 20px;
-}
-.mentalHealth{
-    font-family: 'Cinzel';    
-}
-h6{
-font-family: 'Fira Sans';
-
+.mentalHealth {
+  font-family: "Cinzel";
 }
 
-
-nav{
-   background-color: var(--navBar);
-
+.title {
+  font-family: "Fira Sans";
 }
-.btnColor{
-    background-color: var(--btns) ;
+
+.navColor {
+  background-color: var(--navBar);
 }
-.btnText{
-    color: var(--btns);
+
+.btnColor {
+  background-color: var(--btns);
+}
+
+.btnText {
+  color: var(--btns);
 }

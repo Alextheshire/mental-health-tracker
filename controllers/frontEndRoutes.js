@@ -11,12 +11,12 @@ router.get("/", (req, res) => {
     })
 })
 router.get("/ask", (req, res) => {
-    if(req.session.user) {
+    if (req.session.user) {
         res.render("ask", {
             user: req.session.user
         })
 
-    }else{
+    } else {
         res.redirect("login")
     }
 })
@@ -36,6 +36,27 @@ router.get("/proflogin", (req, res) => {
 
 
 
+router.get("/chart", (req, res) => {
+    if (req.session.user) {
+        res.render('chart')
+    } else {
+        res.render('login')
+    }
+})
+router.get("/api/chart", (req, res) => {
+    if (req.session.user) {
+        Data.findAll({
+            where: {
+                Userid: req.session.user.id
+            },
+            order: [['date', 'DESC']]
+        }).then(foundData => {
+            res.json(foundData)
+        })
+    } else {
+        res.render('login')
+    }
+})
 // Data.findAll({
 //     include: [User],
 //     order: ['date']
@@ -76,7 +97,13 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                const healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
+                var healthPro= "None"
+                var institution = "None"
+                if(foundUser.Professional){
+
+                    healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
+                    institution=foundUser.Professional.institution
+                }
                 req.session.user = {
                     first_name: foundUser.first_name,
                     last_name: foundUser.last_name,
@@ -84,7 +111,7 @@ router.post("/login", (req, res) => {
                     id: foundUser.id,
                     logged_in: true,
                     healthPro: healthPro,
-                    institution: foundUser.Professional.institution
+                    institution: institution
                 }
                 res.render("profile", {
                     user: req.session.user
@@ -127,37 +154,47 @@ router.post("/newForm", (req, res) => {
         sadness_grade: req.body.sadness_grade,
         fear_grade: req.body.fear_grade,
         notes: req.body.notes,
-        UserId:req.session.user.id
-    }).then(newForm=>{
-        const hbsData = newForm.get({plain:true})
+        UserId: req.session.user.id
+    }).then(newForm => {
+        const hbsData = newForm.get({ plain: true })
         res.json({
             data: hbsData,
-            user:req.session.user
+            user: req.session.user
         })
-    }).catch(err=>{
+    }).catch(err => {
         console.log(err)
         res.json(err)
     })
 })
 
-router.get("/form",(req,res)=>{
-    if(req.session.user){
+router.get("/form", (req, res) => {
+    if (req.session.user) {
         Data.findOne({
-        where: {
-            UserId:req.session.user.id,
-        },
-        order: [["id",'DESC']]
-    }).then(formData =>{
-        const hbsData = formData.get({plain:true})
-        res.render("form",{
-            data:hbsData,
-            user:req.session.user
+            where: {
+                UserId: req.session.user.id,
+            },
+            order: [["id", 'DESC']]
+        }).then(formData => {
+            const hbsData = formData.get({ plain: true })
+            res.render("form", {
+                data: hbsData,
+                user: req.session.user
 
+            })
+        })
+    } else {
+        res.redirect("login")
+    }
+})
+
+router.get("/form/:id", (req, res) => {
+    Data.findByPk(req.params.id).then(foundForm => {
+        const hbsForm = foundForm.get({ plain: true })
+        res.render("form", {
+            data: hbsForm,
+            user: req.session.user
         })
     })
-}else{
-    res.redirect("login")
-}
 })
 
 router.get("/form/:id", (req,res)=> {
@@ -169,4 +206,11 @@ router.get("/form/:id", (req,res)=> {
         })
     })
 })
+router.get("/resources", (req, res) => {
+    console.log('hello')
+    res.render("resources")
+})
+
+
+
 module.exports = router;
