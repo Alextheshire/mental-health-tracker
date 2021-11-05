@@ -26,6 +26,16 @@ router.get("/login", (req, res) => {
         user: req.session.user
     })
 })
+
+router.get("/proflogin", (req, res) => {
+    console.log('hello')
+    res.render("profLogin", {
+        user: req.session.user
+    })
+})
+
+
+
 router.get("/chart", (req, res) => {
     if (req.session.user) {
         res.render('chart')
@@ -187,6 +197,15 @@ router.get("/form/:id", (req, res) => {
     })
 })
 
+router.get("/form/:id", (req,res)=> {
+    Data.findByPk(req.params.id).then(foundForm=>{
+        const hbsForm = foundForm.get({plain:true})
+        res.render("form",{
+            data: hbsForm,
+            user: req.session.user
+        })
+    })
+})
 router.get("/resources", (req, res) => {
     console.log('hello')
     res.render("resources")
