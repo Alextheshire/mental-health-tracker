@@ -10,7 +10,7 @@ router.get("/", (req, res) => {
         user: req.session.user
     })
     }else{
-        res.render("home")
+        res.render('home')
     }
 })
 router.get("/ask", (req, res) => {
