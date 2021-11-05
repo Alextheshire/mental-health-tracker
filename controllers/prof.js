@@ -29,19 +29,26 @@ router.get("/", (req, res) => {
       });
   });
 
-  router.post("/login", (req, res) => {
+  router.post("/profsignup", (req, res) => {
     Professional.create({
-      email: req.body.email,
-      username: req.body.username,
-      password: req.body.password
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        password: req.body.password,
+        email: req.body.email,
+       title: req.body.title,
+       institution: req.body.institution 
     })
       .then(newProf => {
         req.session.user = {
-          id: newUser.id,
-          email: newUser.email,
-          username: newUser.username
+            first_name: newUser.first_name,
+            last_name: newUser.last_name,
+            email: newUser.email,
+            id: newUser.id,
+            title: newTitle.title,
+            institution: newInstituiton.institution,
+            logged_in: true
         };
-        res.json(newUser);
+        res.json(newProf);
       })
       .catch(err => {
         console.log(err);
@@ -70,13 +77,15 @@ router.get("/", (req, res) => {
         }
         if (bcrypt.compareSync(req.body.password, foundProf.password)) {
           req.session.user = {
-            id: foundProf.id,
-            email: foundProf.email,
-            username: foundProf.username
+            first_name: foundUser.first_name,
+            last_name: foundUser.last_name,
+            email: foundUser.email,
+            id: foundUser.id,
+            logged_in: true,
+            institution: foundUser.Professional.institution
           };
           return res.json({
             id:foundProf.id,
-            username:foundProf.username,
             email:foundProf.email
           });
         } else {

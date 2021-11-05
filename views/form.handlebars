@@ -1,15 +1,20 @@
-<div class="container-flex">
-    <div class="row mx-2" style="height:10vh;">
-        <div class="col-3 border border-dark border-2 fw-bold">
-            Date: {{data.date}}
+<body style="background-color: white;">
+    <div class="container">
+        <p></p>
+    </div>
+
+<div class="container" id="dbtForm">
+    <div class="row mx-2">
+        <div class="col-3 border border-dark border-2 fw-bold text-center">
+            Date: <br><span id="pdfDate">{{data.date}}</span>
         </div>
-        <div class="col-3 border border-dark border-2 fw-bold">
-            {{user.first_name}}
+        <div class="col-3 border border-dark border-2 fw-bold text-center">
+             First Name: <br>{{user.first_name}}
         </div>
-        <div class="col-3 border border-dark border-2 fw-bold">
-            {{user.last_name}}
+        <div class="col-3 border border-dark border-2 fw-bold text-center">
+             Last Name: <br>{{user.last_name}}
         </div>
-        <div class="col-3 border border-dark border-2 text-center fw-bold">
+        <div class="col-3 border border-dark border-2 text-center fw-bold" style="padding-left: 0;">
             Provider Name: {{user.healthPro}}
             <br>
             Institution: {{user.institution}}
@@ -18,8 +23,8 @@
     </div>
 
     <div class="row mx-2">
-        <div class="col-12 border border-dark border-2">
-            <table class="table">
+        <div class="col-12 border border-dark border-2 table-responsive-md">
+            <table class="table h-100">
                 <thead>
                     <tr>
                         <th scope="col">Urge to Self Harm</th>
@@ -55,10 +60,16 @@
             </table>
         </div>
     </div>
-    <div class="row mx-2" style="height: 25vh;">
+    <div class="row mx-2" style="height: 200px;">
 
-        <div class="col-1 border border-dark border-2">Notes:</div>
-        <div class="col-11 border border-dark border-2">{{data.notes}}</div>
+        <div class="col-2 border border-dark border-2 text-center fw-bold" style="padding: 0; padding-top: 75px; margin-left: 0px;">Notes:</div>
+        <div class="col-10 border border-dark border-2">{{data.notes}}</div>
     </div>
 
 </div>
+<div class="container d-flex flex-column align-items-center justify-content-center mt-5">
+<button type="button" class="btn btnColor btn-lrg" id="printBtn">Save as PDF</button>
+</div>
+
+<script src="./js/pdfForm.js"></script>
+</body>
