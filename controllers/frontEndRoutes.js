@@ -38,7 +38,9 @@ router.get("/proflogin", (req, res) => {
 
 router.get("/chart", (req, res) => {
     if (req.session.user) {
-        res.render('chart')
+        res.render('chart',{
+            user:req.session.user
+        })
     } else {
         res.render('login')
     }
@@ -208,7 +210,9 @@ router.get("/form/:id", (req,res)=> {
 })
 router.get("/resources", (req, res) => {
     console.log('hello')
-    res.render("resources")
+    res.render("resources",{
+        user:req.session.user
+    })
 })
 
 
