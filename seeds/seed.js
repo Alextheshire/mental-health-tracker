@@ -19,6 +19,7 @@ const seed = async ()=>{
             last_name: "Davis",
             title: "Ph.D.",
             institution: "Sound Mental Health"
+
             
         }
     ],{
@@ -31,8 +32,7 @@ const seed = async ()=>{
             password:"password",
             email:"joe@joe.joe",
             first_name: "Joe",
-            last_name: "Rehfuss",
-            ProfessionalId:1
+            last_name: "Rehfuss"
         },
         {
 
