@@ -9,8 +9,9 @@ router.get("/", (req, res) => {
     res.render("home", {
         user: req.session.user
     })
+    }else{
+        res.redirect('profile')
     }
-    res.redirect('profile')
 })
 router.get("/ask", (req, res) => {
     if (req.session.user) {
@@ -32,7 +33,6 @@ router.get("/login", (req, res) => {
     }
 })
 
-<<<<<<< HEAD
 router.get("/lookup/:email",(req,res)=>{
     User.findOne({
         where:{
@@ -43,11 +43,6 @@ router.get("/lookup/:email",(req,res)=>{
     }).catch(err=>{
         console.log(err)
         res.json({err:err})
-=======
-router.get("/proflogin", (req, res) => {
-    res.render("profLogin", {
-        user: req.session.user
->>>>>>> dev
     })
 })
 
