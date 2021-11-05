@@ -4,7 +4,9 @@ const { Professional, User, Data } = require("../models");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-
+router.get("/login",(req,res)=> {
+  res.render("profLogin")
+})
 router.post("/profsignup", (req, res) => {
   Professional.create({
     first_name: req.body.first_name,
@@ -118,5 +120,11 @@ router.get("/profile",(req,res)=>{
   }else {
     res.status(401).json("You must be logged in as a healthcare professional to view this page")
   }
+})
+
+router.get("/add",(req,res)=>{
+  res.render("addPatient",{
+    user:req.session.user
+  })
 })
 module.exports = router;
