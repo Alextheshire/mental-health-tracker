@@ -4,31 +4,6 @@ const { Professional, User, Data } = require("../models");
 const bcrypt = require("bcrypt");
 const session = require("express-session");
 
-router.get("/lookup", (req, res) => {
-  Professional.findAll()
-    .then(ProfData => {
-      res.json(ProfData);
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-});
-
-router.get("/lookup/:id", (req, res) => {
-  Professional.findByPk(req.params.id)
-    .then(singleProf => {
-      if (singleProf) {
-        res.json(singleProf);
-      } else {
-        res.status(404).json({ err: "no such user Found!" });
-      }
-    })
-    .catch(err => {
-      console.log(err);
-      res.status(500).json({ err });
-    });
-});
 
 router.post("/profsignup", (req, res) => {
   Professional.create({
@@ -41,13 +16,13 @@ router.post("/profsignup", (req, res) => {
   })
     .then(newProf => {
       req.session.user = {
-        first_name: newUser.first_name,
-        last_name: newUser.last_name,
-        email: newUser.email,
-        id: newUser.id,
-        title: newTitle.title,
-        institution: newInstituiton.institution,
-        logged_in: true
+        first_name: newProf.first_name,
+        last_name: newProf.last_name,
+        email: newProf.email,
+        id: newProf.id,
+        title: newProf.title,
+        institution: newProf.institution,
+        healthPro: true
       };
       res.json(newProf);
     })
@@ -106,18 +81,18 @@ router.post("/login", (req, res) => {
       }
       if (bcrypt.compareSync(req.body.password, foundProf.password)) {
         req.session.user = {
-          first_name: foundUser.first_name,
-          last_name: foundUser.last_name,
-          email: foundUser.email,
-          id: foundUser.id,
-          logged_in: true,
-          institution: foundUser.Professional.institution
-        };
-        return res.json({
+          first_name: foundProf.first_name,
+          last_name: foundProf.last_name,
+          email: foundProf.email,
           id: foundProf.id,
-          email: foundProf.email
-        });
-      } else {
+          healthPro: true,
+          institution: foundProf.institution
+        };
+        res.render("proLanding",{
+          user: req.session.user
+        })
+        }
+      else {
         return req.session.destroy(() => {
           return res.status(401).json({ err: "invalid email/password" });
         })
@@ -127,21 +102,10 @@ router.post("/login", (req, res) => {
           });
       }
     })
-})
+});
 
 
-router.get('/alextest', (req, res) => {
-  // req.session.destroy();
-  req.session.user = {
-    id: 1,
-    first_name: "Denise",
-    last_name: "Richards",
-    title: "M.D.",
-    institution: "Sound Mental Health",
-    healthPro: true
-  }
-  res.json("success")
-})
+
 router.get("/patients", async (req, res) => {
   if (req.session.user.healthPro === true) {
 
@@ -167,12 +131,24 @@ router.get("/patients", async (req, res) => {
 
     }
     res.render('patients', {
-      patients: hbsPro.Users
+      patients: hbsPro.Users,
+      user:req.session.user
     })
   }
 
 
   else {
+    res.status(401).json("You must be logged in as a healthcare professional to view this page")
+  }
+})
+
+router.get("/profile",(req,res)=>{
+  if(req.session.user.healthPro===true){
+
+    res.render("proLanding",{
+      user:req.session.user
+    })
+  }else {
     res.status(401).json("You must be logged in as a healthcare professional to view this page")
   }
 })
