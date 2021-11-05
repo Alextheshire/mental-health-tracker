@@ -32,9 +32,22 @@ router.get("/login", (req, res) => {
     }
 })
 
+<<<<<<< HEAD
+router.get("/lookup/:email",(req,res)=>{
+    User.findOne({
+        where:{
+           email: req.params.email
+        }
+    }).then(foundUser=>{
+        res.json(foundUser)
+    }).catch(err=>{
+        console.log(err)
+        res.json({err:err})
+=======
 router.get("/proflogin", (req, res) => {
     res.render("profLogin", {
         user: req.session.user
+>>>>>>> dev
     })
 })
 
