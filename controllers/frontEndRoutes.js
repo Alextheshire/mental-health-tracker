@@ -6,9 +6,7 @@ const bcrypt = require("bcrypt");
 
 router.get("/", (req, res) => {
     if (req.session.user){
-    res.redirect("profile", {
-        user: req.session.user
-    })
+    res.redirect("profile")
     }else{
         res.render('home')
     }
