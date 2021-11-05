@@ -7,7 +7,7 @@ router.get("/profile",(req,res)=>{
     if(!req.session.user){
         res.redirect('/')
     }else if(req.session.user.healthPro===true) {
-        res.redirect("/prof/proLanding")
+        res.redirect("/prof/profile")
     }else {
         User.findByPk(req.session.user.id,{
             include:[Data]
