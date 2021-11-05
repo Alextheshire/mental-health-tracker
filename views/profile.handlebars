@@ -10,7 +10,7 @@
       self harm.
     </p>
     <a href="./ask"><Button class="btn btnColor btn-lg">DBT Diary Card</Button></a>
-
+  {{#if user.Data}}
     <p class="typeFace">
       Select the option below to access your past DBT Diary Cards so that you may either print them out for your
       therapist or save them on your computer for your own use.
@@ -27,7 +27,6 @@
         <li><a class="dropdown-item" href="/form/{{id}}">{{date}}</a></li>
         {{/each}}
       </ul>
-
     </div>
     <div class="col buffer">
     <a href="./form"><Button class="btn btnColor btn-lg">Most Recent DBT Diary Card</Button></a>
@@ -42,6 +41,7 @@
 </div>
 
 
+  {{/if}}
 
 
   </div>

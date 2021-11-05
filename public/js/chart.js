@@ -33,7 +33,7 @@ const createChart = async () => {
         data: {
             labels: ['Self Harm', 'Anger', 'Fear', 'Joy', 'Compassion', 'Sadness', 'Self Accept', 'Shame', 'Suicical Thoughts'],
             datasets: [{
-                label: `Choice out of 5 for the last ${durationChart} days`,
+                label: 'Emotional',
                 data: [selfHarmChart/durationChart, angerChart/durationChart, fearChart/durationChart, joyChart/durationChart, compassionChart/durationChart, sadnessChart/durationChart, selfAcceptChart/durationChart, shameChart/durationChart, suicidalChart/durationChart],
                 backgroundColor: [
                     'rgba(255, 99, 132, 0.2)',
@@ -58,9 +58,19 @@ const createChart = async () => {
                     'rgba(255, 50, 255, 1)',
                 ],
                 borderWidth: 1
-            }]
+            }
+        ]
         },
         options: {
+                plugins: {
+                    title: {
+                        display: true,
+                        text: `Average of last ${durationChart} Days`,
+                        font: {
+                            size: 20
+                        }
+                    }
+                },
             scales: {
                 y: {
                     beginAtZero: true
@@ -78,6 +88,7 @@ const createUrge = async () => {
     urgeDays= []
     const response = await fetch('/api/chart');
     const res = await response.json()
+    console.log(res);
     for (i = 0; i < res.length; i++) {
         selfHarm.push(res[i].selfharm_grade)
         shame.push(res[i].shame_grade)
@@ -90,18 +101,21 @@ const createUrge = async () => {
             label: 'selfHarm',
             data: selfHarm,
             fill: false,
+            backgroundColor: 'rgb(255, 99, 132, 1)',
             borderColor: 'rgb(255, 99, 132, 1)',
             tension: 0.1
         },{
             label: 'shame',
             data: shame,
             fill: false,
+            backgroundColor: 'rgb(50, 20, 64, 1)',
             borderColor: 'rgb(50, 20, 64, 1)',
             tension: 0.1
         },{
             label: 'suicidal',
             data: suicidal,
             fill: false,
+            backgroundColor: 'rgb(255, 50, 255, 1)',
             borderColor: 'rgb(255, 50, 255, 1)',
             tension: 0.1
         }]
@@ -135,18 +149,21 @@ const createStresses = async () => {
             label: 'anger',
             data: anger,
             fill: false,
+            backgroundColor: 'rgb(54, 162, 235, 1)',
             borderColor: 'rgb(54, 162, 235, 1)',
             tension: 0.1
         },{
             label: 'sadness',
             data: sadness,
             fill: false,
+            backgroundColor: 'rgb(255, 159, 64, 1)',
             borderColor: 'rgb(255, 159, 64, 1)',
             tension: 0.1
         },{
             label: 'fear',
             data: fear,
             fill: false,
+            backgroundColor: 'rgb(255, 206, 86, 1)',
             borderColor: 'rgb(255, 206, 86, 1)',
             tension: 0.1
         }]
@@ -180,18 +197,21 @@ const createAcceptable = async () => {
             label: 'joy',
             data: joy,
             fill: false,
+            backgroundColor: 'rgb(75, 192, 192, 1)',
             borderColor: 'rgb(75, 192, 192, 1)',
             tension: 0.1
         },{
             label: 'compassion',
             data: compassion,
             fill: false,
+            backgroundColor: 'rgb(153, 102, 255, 1)',
             borderColor: 'rgb(153, 102, 255, 1)',
             tension: 0.1
         },{
             label: 'Self Accept',
             data: selfAccept,
             fill: false,
+            backgroundColor: 'rgb(0, 159, 64, 1)',
             borderColor: 'rgb(0, 159, 64, 1)',
             tension: 0.1
         }]

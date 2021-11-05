@@ -5,10 +5,12 @@ const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
-    console.log('hello')
+    if (!req.session.user){
     res.render("home", {
         user: req.session.user
     })
+    }
+    res.redirect('profile')
 })
 router.get("/ask", (req, res) => {
     if (req.session.user) {
@@ -21,14 +23,16 @@ router.get("/ask", (req, res) => {
     }
 })
 router.get("/login", (req, res) => {
-    console.log('hello')
+    if (req.session.user){
+        res.redirect("profile")
+    } else {
     res.render("login", {
         user: req.session.user
     })
+    }
 })
 
 router.get("/proflogin", (req, res) => {
-    console.log('hello')
     res.render("profLogin", {
         user: req.session.user
     })
@@ -36,10 +40,10 @@ router.get("/proflogin", (req, res) => {
 
 
 
-router.get("/chart", (req, res) => {
+router.get("/analytics", (req, res) => {
     if (req.session.user) {
-        res.render('chart',{
-            user:req.session.user
+        res.render('chart', {
+            user: req.session.user
         })
     } else {
         res.render('login')
@@ -101,7 +105,7 @@ router.post("/login", (req, res) => {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
                 var provider= "None"
                 var institution = "None"
-                if(foundUser.Professional){
+                if (foundUser.Professional) {
 
                     provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
                     institution=foundUser.Professional.institution
@@ -177,12 +181,15 @@ router.get("/form", (req, res) => {
             },
             order: [["id", 'DESC']]
         }).then(formData => {
-            const hbsData = formData.get({ plain: true })
-            res.render("form", {
-                data: hbsData,
-                user: req.session.user
-
-            })
+            if (formData == null) {
+                res.redirect("profile")
+            } else {
+                const hbsData = formData.get({ plain: true })
+                res.render("form", {
+                    data: hbsData,
+                    user: req.session.user
+                })
+            }
         })
     } else {
         res.redirect("login")
@@ -199,19 +206,18 @@ router.get("/form/:id", (req, res) => {
     })
 })
 
-router.get("/form/:id", (req,res)=> {
-    Data.findByPk(req.params.id).then(foundForm=>{
-        const hbsForm = foundForm.get({plain:true})
-        res.render("form",{
+router.get("/form/:id", (req, res) => {
+    Data.findByPk(req.params.id).then(foundForm => {
+        const hbsForm = foundForm.get({ plain: true })
+        res.render("form", {
             data: hbsForm,
             user: req.session.user
         })
     })
 })
 router.get("/resources", (req, res) => {
-    console.log('hello')
-    res.render("resources",{
-        user:req.session.user
+    res.render("resources", {
+        user: req.session.user
     })
 })
 
