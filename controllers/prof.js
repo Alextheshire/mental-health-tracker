@@ -46,46 +46,7 @@ router.post("/login", (req, res) => {
       return req.session.destroy(() => {
         return res.status(401).json({ err: "invalid email/password" });
       });
-    }
-<<<<<<< HEAD
-  
-=======
-    if (bcrypt.compareSync(req.body.password, foundProf.password)) {
-      req.session.user = {
-        first_name: foundProf.first_name,
-        last_name: foundProf.last_name,
-        email: foundProf.email,
-        id: foundProf.id,
-        logged_in: true,
-        institution: foundProf.institution
-      };
-      return res.json({
-        id: foundProf.id,
-        email: foundProf.email
-      });
-    } else {
-      return req.session.destroy(() => {
-        return res.status(401).json({ err: "invalid email/password" });
-      })
-        .catch(err => {
-          console.log(err);
-          res.status(500).json({ err });
-        });
-    }
-  })
-    .then(foundProf => {
-      if (!foundProf) {
-        return req.session.destroy(() => {
-          return res.status(401).json({ err: "invalid email/password" });
-        });
-      }
-      if (!req.body.password) {
-        return req.session.destroy(() => {
-          return res.status(401).json({ err: "invalid email/password" });
-        });
-      }
->>>>>>> dev
-      if (bcrypt.compareSync(req.body.password, foundProf.password)) {
+    } if (bcrypt.compareSync(req.body.password, foundProf.password)) {
         req.session.user = {
           first_name: foundProf.first_name,
           last_name: foundProf.last_name,
