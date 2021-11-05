@@ -5,12 +5,12 @@ const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
-    if (req.session.user) {
+    if (!req.session.user){
+    res.render("home", {
+        user: req.session.user
+    })
+    }else{
         res.redirect('profile')
-    } else {
-        res.render("home", {
-            user: req.session.user
-        })
     }
 })
 router.get("/ask", (req, res) => {
@@ -33,9 +33,16 @@ router.get("/login", (req, res) => {
     }
 })
 
-router.get("/proflogin", (req, res) => {
-    res.render("profLogin", {
-        user: req.session.user
+router.get("/lookup/:email",(req,res)=>{
+    User.findOne({
+        where:{
+           email: req.params.email
+        }
+    }).then(foundUser=>{
+        res.json(foundUser)
+    }).catch(err=>{
+        console.log(err)
+        res.json({err:err})
     })
 })
 
