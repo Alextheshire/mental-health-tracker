@@ -5,12 +5,16 @@ const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
-    if (!req.session.user){
-    res.render("home", {
+    if (req.session.user){
+    res.redirect("profile", {
         user: req.session.user
     })
     }else{
+<<<<<<< HEAD
+        res.render("home")
+=======
         res.redirect('profile')
+>>>>>>> dev
     }
 })
 router.get("/ask", (req, res) => {
@@ -33,7 +37,12 @@ router.get("/login", (req, res) => {
     }
 })
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> dev
 router.get("/lookup/:email",(req,res)=>{
+    console.log("I listened")
     User.findOne({
         where:{
            email: req.params.email

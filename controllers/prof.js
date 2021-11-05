@@ -47,6 +47,9 @@ router.post("/login", (req, res) => {
         return res.status(401).json({ err: "invalid email/password" });
       });
     }
+<<<<<<< HEAD
+  
+=======
     if (bcrypt.compareSync(req.body.password, foundProf.password)) {
       req.session.user = {
         first_name: foundProf.first_name,
@@ -81,6 +84,7 @@ router.post("/login", (req, res) => {
           return res.status(401).json({ err: "invalid email/password" });
         });
       }
+>>>>>>> dev
       if (bcrypt.compareSync(req.body.password, foundProf.password)) {
         req.session.user = {
           first_name: foundProf.first_name,
@@ -160,4 +164,13 @@ router.get("/add",(req,res)=>{
     user:req.session.user
   })
 })
+router.put("/add",(req,res)=>{
+User.update({ProfessionalId: req.session.user.id},{
+  where:{
+    id:req.body.id
+  }}
+).then(updated=>{
+  res.json("User Added")
+})}
+)
 module.exports = router;
