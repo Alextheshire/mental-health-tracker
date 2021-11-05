@@ -3,28 +3,28 @@ const signupFormPro = document.getElementById('signupFormPro')
 
 console.log('hi');
 
-loginFormPro.addEventListener('enter', async (e) => {
+loginFormPro.addEventListener('submit', async (e) => {
     console.log('hey');
     e.preventDefault()
     const loginEmail = document.getElementById('email').value
     const loginPassword = document.getElementById('password').value
 
     if(loginEmail && loginPassword){
-        const resp = await fetch('/login', {
+        const resp = await fetch('/prof/login', {
             method: 'POST',
             body: JSON.stringify({ email: loginEmail, password: loginPassword }),
             headers: { 'Content-Type': 'application/json' }
         })
 
         if(resp.ok){
-            location.href = '/profProfile'
+            location.href = '/prof/Profile'
         } else {
             alert('Incorrect information')
         }
     }
 });
 
-signupFormPro.addEventListener('enter2', async (e) => {
+signupFormPro.addEventListener('submit', async (e) => {
    console.log('hello');
     e.preventDefault()
     const signupemailpro = document.getElementById('healthsignupemail').value
@@ -39,7 +39,7 @@ signupFormPro.addEventListener('enter2', async (e) => {
         return
     }
     if(signupemailpro && signupPasswordpro && signupfirstnamepro && signuplastnamepro && signuptitle && signupinst){
-        const resp = await fetch('/profsignup', {
+        const resp = await fetch('/prof/profsignup', {
             method: 'POST',
             body: JSON.stringify({ email:signupemailpro, password:signupPasswordpro, first_name:signupfirstnamepro, last_name:signuplastnamepro,
              title:signuptitle,
@@ -48,7 +48,7 @@ signupFormPro.addEventListener('enter2', async (e) => {
         })
 
         if(resp.ok){
-            location.href = '/profile'
+            location.href = '/prof/profile'
         } else {
             alert("signup fail")
         }
