@@ -88,6 +88,7 @@ const createUrge = async () => {
     urgeDays= []
     const response = await fetch('/api/chart');
     const res = await response.json()
+    console.log(res);
     for (i = 0; i < res.length; i++) {
         selfHarm.push(res[i].selfharm_grade)
         shame.push(res[i].shame_grade)
