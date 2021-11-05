@@ -46,9 +46,7 @@ router.post("/login", (req, res) => {
       return req.session.destroy(() => {
         return res.status(401).json({ err: "invalid email/password" });
       });
-    }
-  
-      if (bcrypt.compareSync(req.body.password, foundProf.password)) {
+    } if (bcrypt.compareSync(req.body.password, foundProf.password)) {
         req.session.user = {
           first_name: foundProf.first_name,
           last_name: foundProf.last_name,
