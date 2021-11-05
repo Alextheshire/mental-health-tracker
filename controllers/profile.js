@@ -5,7 +5,7 @@ const {User,Data} = require('../models');
 
 router.get("/profile",(req,res)=>{
     if(!req.session.user){
-        return res.status(401).send("login first!")
+        res.redirect('/')
     }else if(req.session.user.healthPro===true) {
         res.redirect("/prof/proLanding")
     }else {

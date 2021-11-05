@@ -10,7 +10,11 @@ router.get("/", (req, res) => {
         user: req.session.user
     })
     }else{
+<<<<<<< HEAD
         res.render("home")
+=======
+        res.redirect('profile')
+>>>>>>> dev
     }
 })
 router.get("/ask", (req, res) => {
@@ -24,16 +28,19 @@ router.get("/ask", (req, res) => {
     }
 })
 router.get("/login", (req, res) => {
-    if (req.session.user){
+    if (req.session.user) {
         res.redirect("profile")
     } else {
-    res.render("login", {
-        user: req.session.user
-    })
+        res.render("login", {
+            user: req.session.user
+        })
     }
 })
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> dev
 router.get("/lookup/:email",(req,res)=>{
     console.log("I listened")
     User.findOne({
@@ -113,12 +120,12 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                var provider= "None"
+                var provider = "None"
                 var institution = "None"
                 if (foundUser.Professional) {
 
                     provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
-                    institution=foundUser.Professional.institution
+                    institution = foundUser.Professional.institution
                 }
                 req.session.user = {
                     first_name: foundUser.first_name,
