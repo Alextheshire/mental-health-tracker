@@ -99,11 +99,11 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                var healthPro= "None"
+                var provider= "None"
                 var institution = "None"
                 if(foundUser.Professional){
 
-                    healthPro = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
+                    provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
                     institution=foundUser.Professional.institution
                 }
                 req.session.user = {
@@ -112,7 +112,7 @@ router.post("/login", (req, res) => {
                     email: foundUser.email,
                     id: foundUser.id,
                     logged_in: true,
-                    healthPro: healthPro,
+                    provider: provider,
                     institution: institution
                 }
                 res.render("profile", {
@@ -129,7 +129,7 @@ router.post("/login", (req, res) => {
 })
 router.get("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect("login")
+    res.redirect("/")
 })
 
 router.delete("/:id", (req, res) => {
