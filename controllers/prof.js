@@ -47,12 +47,12 @@ router.post("/login", (req, res) => {
     }
     if (bcrypt.compareSync(req.body.password, foundProf.password)) {
       req.session.user = {
-        first_name: foundUser.first_name,
-        last_name: foundUser.last_name,
-        email: foundUser.email,
-        id: foundUser.id,
+        first_name: foundProf.first_name,
+        last_name: foundProf.last_name,
+        email: foundProf.email,
+        id: foundProf.id,
         logged_in: true,
-        institution: foundUser.Professional.institution
+        institution: foundProf.institution
       };
       return res.json({
         id: foundProf.id,

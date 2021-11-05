@@ -55,3 +55,9 @@ footer{
 .buffer{
   padding-top: 30px;
 }
+.smallBuffer{
+  padding: 10px;
+}
+.smBorder{
+  border: 20px;
+}
