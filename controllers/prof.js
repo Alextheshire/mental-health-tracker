@@ -30,27 +30,29 @@ router.get("/lookup/:id", (req, res) => {
     });
 });
 
-router.post("/signup", (req, res) => {
-  Professional.create({
-    email: req.body.email,
-    username: req.body.username,
-    password: req.body.password
-  })
-    .then(newProf => {
-      req.session.user = {
-        id: newUser.id,
-        email: newUser.email,
-        username: newUser.username
-      };
-      res.json(newUser);
+  router.post("/profsignup", (req, res) => {
+    Professional.create({
+        first_name: req.body.first_name,
+        last_name: req.body.last_name,
+        password: req.body.password,
+        email: req.body.email,
+       title: req.body.title,
+       institution: req.body.institution 
     })
-    .catch(err => {
-      console.log(err);
-      req.session.destroy(() => {
-        res.status(500).json({ err });
+      .then(newProf => {
+        req.session.user = {
+            first_name: newUser.first_name,
+            last_name: newUser.last_name,
+            email: newUser.email,
+            id: newUser.id,
+            title: newTitle.title,
+            institution: newInstituiton.institution,
+            logged_in: true
+        };
+        res.json(newProf);
       })
     });
-});
+
 
 router.post("/login", (req, res) => {
   Professional.findOne({
@@ -58,34 +60,34 @@ router.post("/login", (req, res) => {
       email: req.body.email
     }
   })
-    .then(foundProf => {
-      if (!foundProf) {
-        return req.session.destroy(() => {
-          return res.status(401).json({ err: "invalid email/password" });
-        });
-      }
-      if (!req.body.password) {
-        return req.session.destroy(() => {
-          return res.status(401).json({ err: "invalid email/password" });
-        });
-      }
-      if (bcrypt.compareSync(req.body.password, foundProf.password)) {
-        req.session.user = {
-          id: foundProf.id,
-          email: foundProf.email,
-          username: foundProf.username
-        };
-        return res.json({
-          id: foundProf.id,
-          username: foundProf.username,
-          email: foundProf.email
-        });
-      } else {
-        return req.session.destroy(() => {
-          return res.status(401).json({ err: "invalid email/password" });
-        });
-      }
-    })
+      .then(foundProf => {
+        if (!foundProf) {
+          return req.session.destroy(() => {
+            return res.status(401).json({ err: "invalid email/password" });
+          });
+        }
+        if (!req.body.password) {
+          return req.session.destroy(() => {
+            return res.status(401).json({ err: "invalid email/password" });
+          });
+        }
+        if (bcrypt.compareSync(req.body.password, foundProf.password)) {
+          req.session.user = {
+            first_name: foundUser.first_name,
+            last_name: foundUser.last_name,
+            email: foundUser.email,
+            id: foundUser.id,
+            logged_in: true,
+            institution: foundUser.Professional.institution
+          };
+          return res.json({
+            id:foundProf.id,
+            email:foundProf.email
+          });
+        } else {
+          return req.session.destroy(() => {
+            return res.status(401).json({ err: "invalid email/password" });
+          })
     .catch(err => {
       console.log(err);
       res.status(500).json({ err });
