@@ -5,12 +5,12 @@ const bcrypt = require("bcrypt");
 
 
 router.get("/", (req, res) => {
-    if (!req.session.user){
-    res.render("home", {
-        user: req.session.user
-    })
+    if (req.session.user) {
+        res.redirect('profile')
     } else {
-    res.redirect('profile')
+        res.render("home", {
+            user: req.session.user
+        })
     }
 })
 router.get("/ask", (req, res) => {
@@ -24,31 +24,18 @@ router.get("/ask", (req, res) => {
     }
 })
 router.get("/login", (req, res) => {
-    if (req.session.user){
+    if (req.session.user) {
         res.redirect("profile")
     } else {
-    res.render("login", {
-        user: req.session.user
-    })
+        res.render("login", {
+            user: req.session.user
+        })
     }
 })
 
-<<<<<<< HEAD
-router.get("/lookup/:email",(req,res)=>{
-    User.findOne({
-        where:{
-           email: req.params.email
-        }
-    }).then(foundUser=>{
-        res.json(foundUser)
-    }).catch(err=>{
-        console.log(err)
-        res.json({err:err})
-=======
 router.get("/proflogin", (req, res) => {
     res.render("profLogin", {
         user: req.session.user
->>>>>>> dev
     })
 })
 
@@ -117,12 +104,12 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                var provider= "None"
+                var provider = "None"
                 var institution = "None"
                 if (foundUser.Professional) {
 
                     provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
-                    institution=foundUser.Professional.institution
+                    institution = foundUser.Professional.institution
                 }
                 req.session.user = {
                     first_name: foundUser.first_name,
@@ -147,7 +134,7 @@ router.post("/login", (req, res) => {
 })
 router.get("/logout", (req, res) => {
     req.session.destroy();
-    res.redirect("/")
+    res.redirect("")
 })
 
 router.delete("/:id", (req, res) => {
