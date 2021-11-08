@@ -110,18 +110,12 @@ router.post("/login", (req, res) => {
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
             
-                if (foundUser.Professional) {
-
-                    provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
-                    institution = foundUser.Professional.institution
-                }
                 req.session.user = {
                     first_name: foundUser.first_name,
                     last_name: foundUser.last_name,
                     email: foundUser.email,
                     id: foundUser.id,
                     logged_in: true,
-                    institution: institution
                 }
                 res.render("profile", {
                     user: req.session.user
