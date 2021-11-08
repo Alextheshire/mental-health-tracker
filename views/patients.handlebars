@@ -1,14 +1,14 @@
 <div class="content-wrap container mt-5">
     {{#each patients}}
     <div class="row border border-2 border-dark m-5 p-5">
-        <div class="col-4">
+        <div class="col-lg-4 col-md-5 col-sm-12 smallBuffer">
 
             <h3>{{first_name}} {{last_name}}</h3>
             <h4>{{email}}</h4>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-5 col-sm-12 smallBuffer">
             <div class="dropdown">
-                <button class="btn btn-lg dropdown-toggle btnColor" type="button" id="dropdownMenuButton1"
+                <button class="btn btn-lg dropdown-toggle btnColor text-wrap" type="button" id="dropdownMenuButton1"
                     data-bs-toggle="dropdown" aria-expanded="false">
                     Select DBT Form
                 </button>
@@ -20,7 +20,7 @@
 
             </div>
         </div>
-        <div class="col-4">
+        <div class="col-lg-4 col-md-5 col-sm-12 smallBuffer">
             <a href="mailto:{{email}}" type="button" class="btn btn-lg btnColor">Send Email</a>
         </div>
     </div>
