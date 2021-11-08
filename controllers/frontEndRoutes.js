@@ -88,7 +88,6 @@ router.post("/signup", (req, res) => {
             email: newUser.email,
             id: newUser.id,
             logged_in: true,
-            provider: provider,
             institution: institution
         }
         res.render("profile", {
@@ -111,8 +110,7 @@ router.post("/login", (req, res) => {
             res.status(401).json({ message: "incorrect email or password" })
         } else {
             if (bcrypt.compareSync(req.body.password, foundUser.password)) {
-                var provider = "None"
-                var institution = "None"
+            
                 if (foundUser.Professional) {
 
                     provider = foundUser.Professional.first_name + " " + foundUser.Professional.last_name + ", " + foundUser.Professional.title
@@ -124,7 +122,6 @@ router.post("/login", (req, res) => {
                     email: foundUser.email,
                     id: foundUser.id,
                     logged_in: true,
-                    provider: provider,
                     institution: institution
                 }
                 res.render("profile", {
