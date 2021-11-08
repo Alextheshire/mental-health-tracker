@@ -88,7 +88,6 @@ router.post("/signup", (req, res) => {
             email: newUser.email,
             id: newUser.id,
             logged_in: true,
-            institution: institution
         }
         res.render("profile", {
             user: req.session.user
