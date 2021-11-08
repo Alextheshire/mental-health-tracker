@@ -87,7 +87,9 @@ router.post("/signup", (req, res) => {
             last_name: newUser.last_name,
             email: newUser.email,
             id: newUser.id,
-            logged_in: true
+            logged_in: true,
+            provider: provider,
+            institution: institution
         }
         res.render("profile", {
             user: req.session.user
@@ -182,18 +184,22 @@ router.post("/newForm", (req, res) => {
 router.get("/form", (req, res) => {
     if (req.session.user) {
         Data.findOne({
+            include:[User],
             where: {
                 UserId: req.session.user.id,
             },
             order: [["id", 'DESC']]
-        }).then(formData => {
+        }).then(async (formData) => {
             if (formData == null) {
                 res.redirect("profile")
             } else {
                 const hbsData = formData.get({ plain: true })
+                const providerData = await Professional.findByPk(hbsData.User.ProfessionalId)
+                const hbsProData = providerData.get({plain:true})
                 res.render("form", {
                     data: hbsData,
-                    user: req.session.user
+                    user: hbsData.User,
+                    provider:hbsProData
                 })
             }
         })
@@ -203,24 +209,21 @@ router.get("/form", (req, res) => {
 })
 
 router.get("/form/:id", (req, res) => {
-    Data.findByPk(req.params.id).then(foundForm => {
+    Data.findByPk(req.params.id, {
+        include: [User]
+    }).then(async(foundForm) => {
         const hbsForm = foundForm.get({ plain: true })
+        const proData = await Professional.findByPk(hbsForm.User.ProfessionalId)
+        const hbsProData = proData.get({plain:true})
+
         res.render("form", {
             data: hbsForm,
-            user: req.session.user
+            user: hbsForm.User,
+            provider: hbsProData
         })
     })
 })
 
-router.get("/form/:id", (req, res) => {
-    Data.findByPk(req.params.id).then(foundForm => {
-        const hbsForm = foundForm.get({ plain: true })
-        res.render("form", {
-            data: hbsForm,
-            user: req.session.user
-        })
-    })
-})
 router.get("/resources", (req, res) => {
     res.render("resources", {
         user: req.session.user
